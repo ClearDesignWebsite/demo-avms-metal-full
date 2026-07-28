@@ -53,6 +53,34 @@ background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:
 .hero-veil{position:absolute;inset:0;z-index:-1;
   background:linear-gradient(to top,var(--bg) 6%,color-mix(in srgb,var(--bg) 88%,transparent) 34%,color-mix(in srgb,var(--bg) 58%,transparent) 62%,color-mix(in srgb,var(--bg) 26%,transparent) 92%)}
 .hero-inner{max-width:1200px;margin:0 auto;width:100%;position:relative}
+
+/* ── RIDEAU MÉTALLIQUE (se lève au scroll) ── */
+.shutter{position:absolute;inset:0;z-index:3;will-change:transform;transform:translateZ(0);
+  background:
+    /* nervure centrale de chaque lame */
+    repeating-linear-gradient(180deg,
+      rgba(255,255,255,.10) 0 1px,
+      rgba(0,0,0,.42) 1px 3px,
+      rgba(255,255,255,.05) 3px 5px,
+      transparent 5px 30px),
+    /* volume de la lame */
+    repeating-linear-gradient(180deg,
+      #2c2e31 0 6px, #3e4145 6px 15px, #34373a 15px 24px, #212326 24px 30px),
+    /* reflet vertical métal */
+    linear-gradient(90deg,#1a1c1e 0%,#3a3d41 16%,#54585d 33%,#3a3d41 50%,#54585d 68%,#33363a 86%,#1a1c1e 100%);
+  background-blend-mode:overlay,normal,multiply;
+  box-shadow:inset 0 -22px 34px rgba(0,0,0,.6),0 14px 40px rgba(0,0,0,.55)}
+/* barre de tirage en bas du rideau */
+.shutter::after{content:"";position:absolute;left:0;right:0;bottom:0;height:16px;
+  background:linear-gradient(180deg,#5a5e63,#2a2c2f 60%,#131415);
+  box-shadow:0 3px 12px rgba(0,0,0,.7)}
+/* indice visuel : ça se lève au scroll */
+.shutter .hint{position:absolute;left:0;right:0;bottom:12%;text-align:center;color:#cfd3d8;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;text-shadow:0 2px 10px #000}
+.shutter .hint::after{content:"";display:block;width:1px;height:2.4rem;margin:.9rem auto 0;
+  background:linear-gradient(var(--accent),transparent);animation:cue 1.9s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.35);transform-origin:top;opacity:.5}50%{transform:scaleY(1);transform-origin:top;opacity:1}}
+@media(prefers-reduced-motion:reduce){.shutter{display:none}}
 .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
 .hero .kicker,.hero h1,.hero .lead{text-shadow:0 2px 18px rgba(0,0,0,.75)}
 h1{font-family:var(--display);font-size:clamp(2.7rem,7.5vw,5.6rem);line-height:.97;letter-spacing:.008em;max-width:17ch}
@@ -201,9 +229,12 @@ select option{background:var(--panel2);color:var(--ink)}
 .rcard .who{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line);
   font-family:var(--mono);font-size:.72rem;color:var(--soft)}
 .rcard .who b{color:var(--accent);font-family:var(--body);font-size:.92rem}
-.notebig{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-bottom:.5rem}
-.notebig .n{font-family:var(--display);font-size:4rem;line-height:1;color:var(--accent)}
-.notebig .meta{font-size:.9rem;color:var(--soft)}
+.notebig{display:inline-flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;
+  background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.9rem}
+.notebig .n{font-family:var(--display);font-size:3.6rem;line-height:.9;color:var(--accent)}
+.notebig .n small{font-size:1.1rem;color:var(--soft);font-family:var(--body);margin-left:.15rem}
+.notebig .meta{font-size:.92rem;color:var(--soft);max-width:26ch;line-height:1.6}
+.notebig .stars{margin-bottom:.3rem;font-size:1rem}
 
 /* ── HORAIRES ── */
 .hours{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:1.2rem}
@@ -250,7 +281,7 @@ footer{border-top:1px solid var(--line);padding:3rem max(1.1rem,4vw) 2rem;backgr
 <div class="pagehero"><div class="wrap"><div class="breadcrumb"><a href="index.html">Accueil</a> / Avis</div>
 <p class="kicker">Ce que disent nos clients</p><h1 class="anim">Avis clients</h1></div></div>
 <section><div class="wrap">
-<div class="notebig rv"><span class="n">5,0</span><div class="meta"><div class="stars">★★★★★</div>4 avis Pages Jaunes et 2 avis Google, tous à 5 sur 5.</div></div>
+<div class="notebig rv"><span class="n">5,0<small>/5</small></span><div class="meta"><div class="stars">★★★★★</div>4 avis Pages Jaunes et 2 avis Google, tous à 5 sur 5.</div></div>
 <div class="reviews"><div class="rcard rv rv1"><div class="stars">★★★★★</div>
 <p>« Très satisfait de la rénovation de notre verrière, au 7ème étage d'un immeuble d'Issy-les-Moulineaux. »</p><p style="margin-top:.8rem;color:var(--soft);font-size:.9rem">Notre verrière créée en 1995 par une autre entreprise commençait à se dégrader. Diagnostic technique très clair sur la réparation à effectuer, devis raisonnable et intervention rapide. Contact très agréable. Je recommande.</p><div class="who"><b>GEFF</b><span>21 juin 2022</span></div></div><div class="rcard rv rv2"><div class="stars">★★★★★</div>
 <p>« Excellent artisan, très professionnel, très compétent dans ses domaines. Fiable, de parole, respectueux des délais. Je le recommande vivement. Très contente de son travail de grande qualité. »</p><div class="who"><b>SifromParis</b><span>16 septembre 2021</span></div></div><div class="rcard rv rv3"><div class="stars">★★★★★</div>
@@ -284,18 +315,41 @@ b.style.animationDelay=(0.12+i*0.055)+'s';s.appendChild(b);h.appendChild(s);if(i
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{rootMargin:'-6% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 setTimeout(()=>document.querySelectorAll('.rv:not(.on)').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*1.15)e.classList.add('on')}),2200);
-// compteurs animés
-function runCount(el){const raw=el.dataset.count,to=parseFloat(raw),suf=el.dataset.suf||'';
-if(isNaN(to)){return}let st=null;const b=el.querySelector('b');
+// compteurs animés (virgule décimale française)
+function runCount(el){const to=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),suf=el.dataset.suf||'';
+if(isNaN(to))return;const b=el.querySelector('b');let st=null;
 function f(ts){st=st||ts;const p=Math.min(1,(ts-st)/1300),e=1-Math.pow(1-p,3);
-b.textContent=(to%1?(to*e).toFixed(1):Math.round(to*e))+suf;if(p<1)requestAnimationFrame(f)}
+b.textContent=(to*e).toFixed(dec).replace('.',',')+suf;if(p<1)requestAnimationFrame(f)}
 requestAnimationFrame(f)}
 const ioc=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){runCount(e.target);ioc.unobserve(e.target)}}),{rootMargin:'-10% 0px'});
 document.querySelectorAll('[data-count]').forEach(el=>ioc.observe(el));
-// parallaxe douce sur le hero
-const hb=document.querySelector('.hero-bg img');
-if(hb&&!matchMedia('(prefers-reduced-motion: reduce)').matches){let last=-1;
-(function tick(){const y=scrollY;if(y!==last&&y<innerHeight*1.2){last=y;hb.style.transform='translate3d(0,'+(y*.22)+'px,0)'}requestAnimationFrame(tick)})()}
+
+// ── RIDEAU MÉTALLIQUE + parallaxe : un seul rAF, coupé dès que le héros sort de l'écran
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const hero=document.querySelector('.hero'),shut=document.querySelector('.shutter'),
+        bgimg=document.querySelector('.hero-bg img');
+  if(!hero)return;
+  let ticking=false,visible=true;
+  // on arrête tout calcul quand le héros n'est plus visible (évite le lag en bas de page)
+  new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible)req()},{threshold:0})
+    .observe(hero);
+  function apply(){
+    ticking=false;
+    const y=scrollY,h=innerHeight;
+    if(shut){ // le rideau se lève sur les 78 premiers % de l'écran
+      const p=Math.min(1,Math.max(0,y/(h*.78)));
+      shut.style.transform='translate3d(0,'+(-p*102)+'%,0)';
+      if(p>=1&&!shut.dataset.done){shut.dataset.done='1';shut.style.visibility='hidden'}
+      else if(p<1&&shut.dataset.done){delete shut.dataset.done;shut.style.visibility=''}
+    }
+    if(bgimg&&y<h*1.2)bgimg.style.transform='translate3d(0,'+(y*.18)+'px,0)';
+  }
+  function req(){if(!ticking&&visible){ticking=true;requestAnimationFrame(apply)}}
+  addEventListener('scroll',req,{passive:true});
+  addEventListener('resize',req,{passive:true});
+  apply();
+})();
 // lightbox
 const figs=[...document.querySelectorAll('.gal figure')];
 if(figs.length){const lb=document.createElement('div');lb.className='lb';lb.innerHTML='<button class="x" aria-label="Fermer">✕</button><button class="prev" aria-label="Précédent">‹</button><img alt=""><button class="next" aria-label="Suivant">›</button><div class="cap"></div>';document.body.appendChild(lb);
