@@ -14,9 +14,10 @@ img{max-width:100%;display:block}a{color:inherit}
 /* ── NAV ── */
 .nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem max(1.1rem,4vw);
 background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;flex-shrink:0}
-.brand img{height:40px;width:auto}
-.brand b{font-family:var(--display);letter-spacing:.05em;font-size:1.18rem;white-space:nowrap}
+/* le logo porte déjà le nom : on ne le répète pas en texte à côté */
+.brand{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.brand img{height:52px;width:auto;max-width:min(52vw,240px);object-fit:contain}
+@media(max-width:520px){.brand img{height:44px}}
 .navlinks{display:flex;gap:1.5rem;font-size:.88rem}
 .navlinks a{text-decoration:none;color:var(--soft);transition:color .2s;padding:.55rem 0;border-bottom:2px solid transparent;min-height:44px;display:flex;align-items:center}
 .navlinks a:hover,.navlinks a.on{color:var(--ink);border-color:var(--accent)}
@@ -100,6 +101,12 @@ background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:
   width:44px;height:7px;border-radius:2px;
   background:linear-gradient(180deg,#f0f2f4,#b9bec2 60%,#949a9f);
   box-shadow:0 1px 3px rgba(0,0,0,.35)}
+/* logo peint sur le tablier, comme sur un vrai rideau de commerce :
+   le logo fourni est blanc sur transparent, on l'inverse pour qu'il se lise sur le gris clair */
+.shutter .mark{position:absolute;left:50%;top:34%;transform:translate(-50%,-50%);
+  width:min(52%,360px);height:auto;opacity:.34;
+  filter:brightness(0) drop-shadow(0 1px 0 rgba(255,255,255,.5));
+  pointer-events:none}
 /* indice visuel : texte sombre, le rideau est clair */
 .shutter .hint{position:absolute;left:0;right:0;bottom:16%;text-align:center;color:#4a5055;
   font-family:var(--mono);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
@@ -360,7 +367,7 @@ section.alt{background-image:repeating-linear-gradient(90deg,color-mix(in srgb,v
 </style><style>.pagehero::before{background-image:url(img/09.jpg)}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "AVMS Metal", "telephone": "07 69 86 03 95", "email": "avms.metal@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "25 quai de l'Apport Paris", "postalCode": "91100", "addressLocality": "Corbeil-Essonnes", "addressCountry": "FR"}, "areaServed": ["Essonne (91)", "Sud Seine-et-Marne (77, Sénart)", "Val-de-Marne (94)", "Île-de-France"], "description": "Réalisations AVMS Metal."}</script></head><body>
 <nav class="nav">
-<a class="brand" href="index.html"><img src="logo.png" alt="AVMS Metal" width="120" height="40"><b>AVMS METAL</b></a>
+<a class="brand" href="index.html" aria-label="AVMS Metal"><img src="logo.png" alt="AVMS Metal"></a>
 <div class="navlinks"><a href="index.html">Accueil</a><a href="prestations.html">Prestations</a><a href="realisations.html" class="on">Réalisations</a><a href="a-propos.html">AVMS Metal</a><a href="avis.html">Avis</a><a href="contact.html">Contact</a></div>
 <a class="navcta" href="contact.html">Demander un devis</a>
 <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
