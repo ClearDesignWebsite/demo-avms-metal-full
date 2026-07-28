@@ -46,6 +46,10 @@ background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:
 .callbar{display:none}
 
 /* ── HERO ── */
+/* Sans rideau : héros normal. Avec rideau : conteneur haut + héros collant,
+   le scroll NATIF pilote l'ouverture puis la page repart. Aucun blocage JS, aucun à-coup. */
+.heroScroll{position:relative;height:210vh}
+.heroScroll .hero{position:sticky;top:0;height:100vh;min-height:100vh}
 .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;padding:0 max(1.1rem,4vw) 9vh;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:-2}
 .hero-bg img{width:100%;height:100%;object-fit:cover;animation:kb 22s ease-out forwards}
@@ -81,6 +85,11 @@ background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:
   background:linear-gradient(var(--accent),transparent);animation:cue 1.9s ease-in-out infinite}
 @keyframes cue{0%,100%{transform:scaleY(.35);transform-origin:top;opacity:.5}50%{transform:scaleY(1);transform-origin:top;opacity:1}}
 @media(prefers-reduced-motion:reduce){.shutter{display:none}}
+/* derrière le rideau, le contenu attend : il se révèle quand le rideau se lève */
+.heroScroll .hero-inner{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .8s cubic-bezier(.19,1,.22,1)}
+.heroScroll .hero.open .hero-inner{opacity:1;transform:none}
+.heroScroll h1 .w b{animation:none;transform:none}
+.heroScroll .lead,.heroScroll .herobtns{opacity:1;animation:none}
 .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
 .hero .kicker,.hero h1,.hero .lead{text-shadow:0 2px 18px rgba(0,0,0,.75)}
 h1{font-family:var(--display);font-size:clamp(2.4rem,6.4vw,5rem);line-height:1.08;letter-spacing:.008em;max-width:17ch}
@@ -349,16 +358,18 @@ document.querySelectorAll('[data-count]').forEach(el=>ioc.observe(el));
   // on arrête tout calcul quand le héros n'est plus visible (évite le lag en bas de page)
   new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible)req()},{threshold:0})
     .observe(hero);
+  const hint=shut&&shut.querySelector('.hint');
   function apply(){
     ticking=false;
     const y=scrollY,h=innerHeight;
-    if(shut){ // le rideau se lève sur les 78 premiers % de l'écran
-      const p=Math.min(1,Math.max(0,y/(h*.78)));
+    if(shut){
+      // le héros est collant : ce scroll lève le rideau AVANT que la page ne défile
+      const p=Math.min(1,Math.max(0,y/(h*.72)));
       shut.style.transform='translate3d(0,'+(-p*102)+'%,0)';
-      if(p>=1&&!shut.dataset.done){shut.dataset.done='1';shut.style.visibility='hidden'}
-      else if(p<1&&shut.dataset.done){delete shut.dataset.done;shut.style.visibility=''}
+      if(hint)hint.style.opacity=String(Math.max(0,1-p*2.4));
+      hero.classList.toggle('open',p>.42);
     }
-    if(bgimg&&y<h*1.2)bgimg.style.transform='translate3d(0,'+(y*.18)+'px,0)';
+    if(bgimg&&y<h*1.6)bgimg.style.transform='translate3d(0,'+(y*.12)+'px,0)';
   }
   function req(){if(!ticking&&visible){ticking=true;requestAnimationFrame(apply)}}
   addEventListener('scroll',req,{passive:true});
