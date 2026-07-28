@@ -1,150 +1,255 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Accueil — AVMS Metal</title><meta name="description" content="Serrurerie, métallerie, vitrerie sur mesure à Corbeil-Essonnes, dans le 91, le 77 et le 94."><meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet"><style>:root{--bg:#111212;--panel:#1a1b1a;--panel2:#212220;--ink:#f2efe9;--soft:#a7a39a;--accent:#d97a2b;--accent2:#f0964a;--line:#2b2c29;--display:'Bebas Neue',sans-serif;--body:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+<title>Accueil · AVMS Metal</title><meta name="description" content="Serrurerie, métallerie et vitrerie sur mesure à Corbeil-Essonnes. Étude et déplacement gratuits, intervention rapide dans le 91, 77 et 94."><meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23d97a2b'/><text x='32' y='45' font-family='Arial Black,Arial,sans-serif' font-size='38' font-weight='900' text-anchor='middle' fill='%23111212'>A</text></svg>"><meta property="og:title" content="Accueil · AVMS Metal"><meta property="og:description" content="Serrurerie, métallerie et vitrerie sur mesure à Corbeil-Essonnes. Étude et déplacement gratuits, intervention rapide dans le 91, 77 et 94.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://cleardesignwebsite.github.io/demo-avms-metal-full/img/09.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet"><style>:root{--bg:#111212;--panel:#181917;--panel2:#1f201d;--ink:#f2efe9;--soft:#b0aca1;--accent:#d97a2b;--accent2:#f0964a;--line:#3a3b36;--display:'Bebas Neue',sans-serif;--body:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}a{color:inherit}
 ::selection{background:var(--accent);color:#0b0c0b}
-.wrap{max-width:1180px;margin:0 auto;padding:0 max(1.4rem,4vw)}
-/* nav */
-.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1rem max(1.4rem,4vw);background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-.brand img{height:38px;width:auto}
-.brand b{font-family:var(--display);letter-spacing:.06em;font-size:1.25rem}
-.navlinks{display:flex;gap:1.6rem;flex-wrap:wrap;font-size:.86rem}
-.navlinks a{text-decoration:none;color:var(--soft);transition:color .2s;padding:.3rem 0;border-bottom:2px solid transparent}
-.navlinks a:hover,.navlinks a.on{color:var(--ink);border-color:var(--accent)}
-.navcta{background:var(--accent);color:#0b0c0b;padding:.65rem 1.2rem;border-radius:5px;text-decoration:none;font-weight:700;font-size:.82rem;letter-spacing:.02em;white-space:nowrap}
-.navcta:hover{background:var(--accent2)}
-.burger{display:none}
-@media(max-width:900px){.navlinks{display:none}.burger{display:block;background:none;border:1px solid var(--line);color:var(--ink);padding:.5rem .8rem;border-radius:5px}}
-/* hero (home) */
-.hero{position:relative;min-height:82vh;display:flex;align-items:flex-end;padding:0 max(1.4rem,4vw) 8vh;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:-2}
-.hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,var(--bg) 8%,color-mix(in srgb,var(--bg) 45%,transparent) 55%,color-mix(in srgb,var(--bg) 15%,transparent))}
-.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
-h1{font-family:var(--display);font-size:clamp(2.6rem,7vw,5.4rem);line-height:.98;letter-spacing:.01em;max-width:16ch}
-.lead{margin-top:1.2rem;max-width:38rem;font-size:1.08rem;color:var(--soft)}
-.cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.8rem;padding:.95rem 1.8rem;background:var(--accent);color:#0b0c0b;font-weight:700;text-decoration:none;border-radius:5px;transition:background .2s,transform .2s}
-.cta:hover{background:var(--accent2);transform:translateY(-2px)}
-.cta.outline{background:transparent;border:1px solid var(--accent);color:var(--ink)}
-.cta.outline:hover{background:color-mix(in srgb,var(--accent) 14%,transparent)}
-/* page hero (interior) */
-.pagehero{padding:9vh max(1.4rem,4vw) 6vh;border-bottom:1px solid var(--line);background:var(--panel)}
-.pagehero .kicker{margin-bottom:.6rem}
-.pagehero h1{font-size:clamp(2.2rem,5.6vw,3.6rem)}
-.breadcrumb{font-family:var(--mono);font-size:.72rem;color:var(--soft);margin-bottom:1rem;letter-spacing:.05em}
-.breadcrumb a{color:var(--soft);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
-/* sections */
-section{padding:8vh max(1.4rem,4vw)}
-.eyebrow{display:flex;align-items:center;gap:.8rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.25em;text-transform:uppercase;color:var(--soft);margin-bottom:1.6rem}
-.eyebrow::after{content:"";flex:1;max-width:4rem;height:1px;background:var(--line)}
-h2{font-family:var(--display);font-size:clamp(1.9rem,4.4vw,3rem);letter-spacing:.01em;margin-bottom:1rem}
-h3{font-family:var(--display);font-size:1.5rem;letter-spacing:.01em;margin-bottom:.5rem}
-.txt{color:var(--soft);max-width:42rem;line-height:1.8}
-.txt+.txt{margin-top:1rem}
-ul.services{list-style:none;margin-top:1.4rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem 2rem;max-width:42rem}
-ul.services li{color:var(--ink);padding-left:1.3rem;position:relative;font-size:.98rem}
-ul.services li::before{content:"—";position:absolute;left:0;color:var(--accent)}
-/* cards grid (services on home) */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .3s,border-color .3s}
-.card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--accent) 50%,transparent)}
-.card .ph{aspect-ratio:4/3;overflow:hidden}
-.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.card:hover .ph img{transform:scale(1.07)}
-.card .in{padding:1.3rem 1.4rem 1.6rem}
-.card p{color:var(--soft);font-size:.92rem;margin-top:.4rem}
-.card .more{display:inline-block;margin-top:.9rem;font-size:.78rem;color:var(--accent);font-weight:600}
-/* gallery grid */
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.8rem;margin-top:1.6rem}
-.gal a{display:block;aspect-ratio:4/3;overflow:hidden;border-radius:6px;border:1px solid var(--line)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.gal a:hover img{transform:scale(1.08)}
-/* duo (image + text) */
-.duo{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-.duo img{border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%}
-@media(max-width:860px){.duo{grid-template-columns:1fr}.cards{grid-template-columns:1fr}ul.services{grid-template-columns:1fr}}
-/* pillars/atouts */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2rem}
-.pillar{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1.4rem}
-.pillar i{font-style:normal;font-family:var(--mono);font-size:.66rem;color:var(--accent);letter-spacing:.15em}
-.pillar b{display:block;font-family:var(--display);font-size:1.3rem;margin:.5rem 0 .4rem}
-.pillar span{color:var(--soft);font-size:.9rem}
-@media(max-width:860px){.pillars{grid-template-columns:1fr}}
-/* reviews */
-.review{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:6px;padding:1.4rem 1.6rem;margin-bottom:1rem}
-.review p{font-size:1.05rem;font-style:italic}
-.review cite{display:block;margin-top:.8rem;font-family:var(--mono);font-size:.72rem;color:var(--accent);font-style:normal}
-/* contact */
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.cline{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--line);font-size:.96rem}
-.cline b{font-weight:700}.cline span{color:var(--soft)}
-.zoneline{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
-.chip{font-size:.76rem;border:1px solid var(--line);border-radius:20px;padding:.25rem .8rem;color:var(--soft)}
-/* footer */
-footer{border-top:1px solid var(--line);padding:2.4rem max(1.4rem,4vw);background:var(--panel)}
-.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;font-size:.86rem;color:var(--soft)}
-.fgrid h4{color:var(--ink);font-family:var(--display);font-size:1.05rem;margin-bottom:.7rem;letter-spacing:.03em}
-.fgrid a{display:block;color:var(--soft);text-decoration:none;padding:.25rem 0}
-.fgrid a:hover{color:var(--accent)}
-.fbottom{max-width:1180px;margin:2rem auto 0;padding-top:1.4rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.72rem;color:var(--soft);font-family:var(--mono)}
-@media(max-width:860px){.fgrid{grid-template-columns:1fr}.cgrid{grid-template-columns:1fr}}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.rv.on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}}
-</style></head><body>
-<nav class="nav"><a class="brand" href="index.html"><img src="logo.png" alt="AVMS Metal"><b>AVMS METAL</b></a><div class="navlinks"><a href="index.html" class="on">Accueil</a><a href="prestations.html">Prestations</a><a href="realisations.html">Réalisations</a><a href="a-propos.html">AVMS Metal</a><a href="avis.html">Avis</a><a href="contact.html">Contact</a></div><a class="navcta" href="contact.html">Demander un devis</a></nav>
+.wrap{max-width:1200px;margin:0 auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-<header class="hero"><div class="hero-bg"><img src="img/09.jpg" alt="AVMS Metal"></div><div class="hero-veil"></div>
-<div><p class="kicker">Serrurerie · Métallerie · Vitrerie · Corbeil-Essonnes (91)</p>
-<h1>Le métal, taillé pour durer.</h1>
-<p class="lead">Garde-corps, portails, escaliers, fermetures de bâtiment : chaque pièce est étudiée et fabriquée sur mesure, en France. Intervention rapide dans le 91, le sud du 77 (Sénart) et le 94.</p>
-<a class="cta" href="contact.html">Demander un devis →</a> <a class="cta outline" href="realisations.html">Voir nos réalisations</a>
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem max(1.1rem,4vw);
+background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;flex-shrink:0}
+.brand img{height:40px;width:auto}
+.brand b{font-family:var(--display);letter-spacing:.05em;font-size:1.18rem;white-space:nowrap}
+.navlinks{display:flex;gap:1.5rem;font-size:.88rem}
+.navlinks a{text-decoration:none;color:var(--soft);transition:color .2s;padding:.55rem 0;border-bottom:2px solid transparent;min-height:44px;display:flex;align-items:center}
+.navlinks a:hover,.navlinks a.on{color:var(--ink);border-color:var(--accent)}
+.navcta{background:var(--accent);color:#0b0c0b;padding:.75rem 1.25rem;border-radius:6px;text-decoration:none;font-weight:700;font-size:.84rem;white-space:nowrap;transition:background .2s,transform .2s;min-height:44px;display:flex;align-items:center}
+.navcta:hover{background:var(--accent2);transform:translateY(-1px)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:46px;height:46px;border-radius:7px;cursor:pointer;align-items:center;justify-content:center;flex-shrink:0}
+.burger svg{width:22px;height:22px;stroke:currentColor;stroke-width:2;fill:none}
+.mobilemenu{display:none}
+@media(max-width:960px){
+  .navlinks{display:none}
+  .burger{display:flex}
+  .navcta{display:none}
+  .mobilemenu{display:block;position:fixed;inset:0 0 0 auto;width:min(84vw,340px);z-index:70;background:var(--panel);border-left:1px solid var(--line);
+    transform:translateX(100%);transition:transform .34s cubic-bezier(.4,0,.2,1);padding:1.2rem;overflow-y:auto}
+  .mobilemenu.open{transform:none}
+  .mobilemenu a{display:flex;align-items:center;min-height:52px;padding:.4rem .6rem;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);font-size:1.02rem}
+  .mobilemenu a:last-of-type{border-bottom:none}
+  .mobilemenu .mm-cta{background:var(--accent);color:#0b0c0b;font-weight:700;border-radius:7px;justify-content:center;margin-top:1rem;border:none}
+  .mm-close{background:none;border:1px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:7px;margin-left:auto;margin-bottom:.8rem;cursor:pointer;display:block}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:65;opacity:0;pointer-events:none;transition:opacity .3s}
+  .scrim.on{opacity:1;pointer-events:auto}
+  /* barre d'appel collante mobile */
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--accent);color:#0b0c0b;
+    align-items:center;justify-content:center;gap:.5rem;min-height:56px;font-weight:700;text-decoration:none;font-size:1rem;box-shadow:0 -4px 18px rgba(0,0,0,.4)}
+  body{padding-bottom:56px}
+}
+.callbar{display:none}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;padding:0 max(1.1rem,4vw) 9vh;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;animation:kb 22s ease-out forwards}
+@keyframes kb{from{transform:scale(1.1)}to{transform:scale(1)}}
+.hero-veil{position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,var(--bg) 4%,color-mix(in srgb,var(--bg) 72%,transparent) 38%,color-mix(in srgb,var(--bg) 30%,transparent) 78%)}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+h1{font-family:var(--display);font-size:clamp(2.7rem,7.5vw,5.6rem);line-height:.97;letter-spacing:.008em;max-width:17ch}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:top}
+h1 .w b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:rise .85s cubic-bezier(.19,1,.22,1) forwards}
+@keyframes rise{to{transform:none}}
+.lead{margin-top:1.3rem;max-width:40rem;font-size:clamp(1rem,1.15vw,1.12rem);color:var(--soft);opacity:0;animation:fade .8s ease .5s forwards}
+@keyframes fade{to{opacity:1}}
+.herobtns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem;opacity:0;animation:fade .8s ease .68s forwards}
+.cta{display:inline-flex;align-items:center;gap:.55rem;padding:1rem 1.9rem;background:var(--accent);color:#0b0c0b;font-weight:700;text-decoration:none;border-radius:6px;transition:background .2s,transform .2s;min-height:48px}
+.cta:hover{background:var(--accent2);transform:translateY(-2px)}
+.cta.outline{background:transparent;border:1px solid color-mix(in srgb,var(--accent) 70%,transparent);color:var(--ink)}
+.cta.outline:hover{background:color-mix(in srgb,var(--accent) 16%,transparent)}
+
+/* ── PAGE HERO (intérieur) ── */
+.pagehero{position:relative;padding:10vh max(1.1rem,4vw) 7vh;border-bottom:1px solid var(--line);overflow:hidden}
+.pagehero::before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;opacity:.16;z-index:-2}
+.pagehero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--bg),transparent);z-index:-1}
+.pagehero h1{font-size:clamp(2.1rem,5.2vw,3.5rem);max-width:22ch}
+.breadcrumb{font-family:var(--mono);font-size:.72rem;color:var(--soft);margin-bottom:.9rem}
+.breadcrumb a{color:var(--soft);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+
+/* ── SECTIONS ── */
+section{padding:9vh max(1.1rem,4vw)}
+section.alt{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.eyebrow{display:flex;align-items:center;gap:.8rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:1.3rem}
+.eyebrow::after{content:"";flex:1;max-width:4.5rem;height:1px;background:var(--line)}
+h2{font-family:var(--display);font-size:clamp(1.95rem,4.4vw,3.1rem);letter-spacing:.008em;margin-bottom:1rem;max-width:20ch}
+h3{font-family:var(--display);font-size:1.55rem;letter-spacing:.01em;margin-bottom:.45rem}
+.txt{color:var(--soft);max-width:44rem;line-height:1.85}
+.txt+.txt{margin-top:1rem}
+ul.services{list-style:none;margin-top:1.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem 2rem;max-width:44rem}
+ul.services li{color:var(--ink);padding-left:1.4rem;position:relative;font-size:.98rem}
+ul.services li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--accent)}
+
+/* ── CARDS ── */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.3rem;margin-top:2.6rem}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .35s cubic-bezier(.19,1,.22,1),border-color .3s,box-shadow .35s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-7px);border-color:color-mix(in srgb,var(--accent) 55%,transparent);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.card .ph{aspect-ratio:4/3;overflow:hidden;background:var(--panel)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.19,1,.22,1)}
+.card:hover .ph img{transform:scale(1.07)}
+.card .in{padding:1.35rem 1.45rem 1.6rem;flex:1;display:flex;flex-direction:column}
+.card p{color:var(--soft);font-size:.93rem;margin-top:.4rem;flex:1}
+.card .more{display:inline-block;margin-top:1rem;font-size:.8rem;color:var(--accent);font-weight:700}
+
+/* ── GALERIE + LIGHTBOX ── */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.9rem;margin-top:1.8rem}
+.gal figure{margin:0;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--panel);cursor:zoom-in;position:relative}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .5s cubic-bezier(.19,1,.22,1)}
+.gal figure:hover img{transform:scale(1.07)}
+.gal figcaption{padding:.65rem .85rem;font-size:.8rem;color:var(--soft);border-top:1px solid var(--line)}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(6,7,6,.95);display:none;align-items:center;justify-content:center;padding:4vh 3vw}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:82vh;object-fit:contain;border-radius:6px}
+.lb .cap{position:absolute;bottom:3vh;left:0;right:0;text-align:center;color:var(--soft);font-size:.9rem;padding:0 1rem}
+.lb button{position:absolute;background:none;border:1px solid var(--line);color:var(--ink);width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:1.3rem;line-height:1}
+.lb .x{top:3vh;right:3vw}.lb .prev{left:3vw}.lb .next{right:3vw}
+
+/* ── DUO ── */
+.duo{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.duo img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%}
+@media(max-width:860px){.duo{grid-template-columns:1fr}ul.services{grid-template-columns:1fr}}
+
+/* ── CHIFFRES ── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;text-align:center}
+.stat b{display:block;font-family:var(--display);font-size:clamp(2.4rem,5.5vw,3.6rem);color:var(--accent);line-height:1}
+.stat span{display:block;margin-top:.45rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+
+/* ── PILIERS ── */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem;margin-top:2rem}
+.pillar{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:1.5rem}
+.pillar i{font-style:normal;font-family:var(--mono);font-size:.68rem;color:var(--accent);letter-spacing:.14em}
+.pillar b{display:block;font-family:var(--display);font-size:1.35rem;margin:.5rem 0 .4rem}
+.pillar span{color:var(--soft);font-size:.92rem}
+
+/* ── AVIS ── */
+.review{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:1.6rem 1.8rem;margin-bottom:1rem}
+.review p{font-size:1.08rem;font-style:italic}
+.review cite{display:block;margin-top:.9rem;font-family:var(--mono);font-size:.74rem;color:var(--accent);font-style:normal}
+.stars{color:var(--accent);letter-spacing:.18em;font-size:1.1rem;margin-bottom:.6rem}
+
+/* ── FORMULAIRE ── */
+form{max-width:44rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:640px){.frow{grid-template-columns:1fr}}
+label{display:block;font-size:.84rem;color:var(--soft);margin:.9rem 0 .35rem}
+input,textarea,select{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--ink);border-radius:7px;padding:.85rem 1rem;font:inherit;font-size:.96rem;min-height:48px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+textarea{min-height:130px;resize:vertical}
+button[type=submit]{margin-top:1.4rem;border:none;cursor:pointer;font-family:inherit}
+
+/* ── CONTACT ── */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem}
+@media(max-width:860px){.cgrid{grid-template-columns:1fr}}
+.cline{display:flex;justify-content:space-between;gap:1.5rem;padding:1.05rem 0;border-bottom:1px solid var(--line);font-size:.96rem}
+.cline b{font-weight:700;white-space:nowrap}.cline span,.cline a{color:var(--soft);text-align:right}
+.cline a{text-decoration:none}.cline a:hover{color:var(--accent)}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.1rem}
+.chip{font-size:.78rem;border:1px solid var(--line);border-radius:20px;padding:.3rem .85rem;color:var(--soft)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--line);padding:3rem max(1.1rem,4vw) 2rem;background:var(--panel)}
+.fgrid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;font-size:.88rem;color:var(--soft)}
+@media(max-width:860px){.fgrid{grid-template-columns:1fr}}
+.fgrid h4{color:var(--ink);font-family:var(--display);font-size:1.1rem;margin-bottom:.8rem;letter-spacing:.03em}
+.fgrid a{display:flex;align-items:center;min-height:40px;color:var(--soft);text-decoration:none}
+.fgrid a:hover{color:var(--accent)}
+.fbottom{max-width:1200px;margin:2.2rem auto 0;padding-top:1.5rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.74rem;color:var(--soft);font-family:var(--mono)}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.19,1,.22,1),transform .8s cubic-bezier(.19,1,.22,1)}
+.rv.on{opacity:1;transform:none}
+.rv2{transition-delay:.09s}.rv3{transition-delay:.18s}.rv4{transition-delay:.27s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}h1 .w b{transform:none!important}.lead,.herobtns{opacity:1!important}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "AVMS Metal", "telephone": "07 69 86 03 95", "email": "avms.metal@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "25 quai de l'Apport Paris", "postalCode": "91100", "addressLocality": "Corbeil-Essonnes", "addressCountry": "FR"}, "areaServed": ["Essonne (91)", "Sud Seine-et-Marne (77, Sénart)", "Val-de-Marne (94)", "Île-de-France"], "description": "Serrurerie, métallerie et vitrerie sur mesure à Corbeil-Essonnes. Étude et déplacement gratuits, intervention rapide dans le 91, 77 et 94."}</script></head><body>
+<nav class="nav">
+<a class="brand" href="index.html"><img src="logo.png" alt="AVMS Metal" width="120" height="40"><b>AVMS METAL</b></a>
+<div class="navlinks"><a href="index.html" class="on">Accueil</a><a href="prestations.html">Prestations</a><a href="realisations.html">Réalisations</a><a href="a-propos.html">AVMS Metal</a><a href="avis.html">Avis</a><a href="contact.html">Contact</a></div>
+<a class="navcta" href="contact.html">Demander un devis</a>
+<button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+</nav>
+<div class="scrim"></div>
+<aside class="mobilemenu"><button class="mm-close" aria-label="Fermer le menu">✕</button><a href="index.html">Accueil</a><a href="prestations.html">Prestations</a><a href="realisations.html">Réalisations</a><a href="a-propos.html">AVMS Metal</a><a href="avis.html">Avis</a><a href="contact.html">Contact</a><a class="mm-cta" href="contact.html">Demander un devis</a></aside>
+<a class="callbar" href="tel:+33769860395">Appeler 07 69 86 03 95</a>
+<header class="hero"><div class="hero-bg"><img src="img/09.jpg" alt="Garde-corps et marquise, Corbeil-Essonnes" fetchpriority="high"></div><div class="hero-veil"></div>
+<div class="hero-inner"><p class="kicker">Serrurerie · Métallerie · Vitrerie · Corbeil-Essonnes (91)</p><h1 class="anim">Le métal, taillé pour durer.</h1>
+<p class="lead">Garde-corps, portails, escaliers, fermetures de bâtiment : chaque pièce est étudiée sur place et fabriquée sur mesure, en France. Intervention rapide dans le 91, le sud du 77 et le 94.</p>
+<div class="herobtns"><a class="cta" href="contact.html">Demander un devis</a><a class="cta outline" href="realisations.html">Voir nos réalisations</a></div>
 </div></header>
 
-<section><div class="eyebrow">nos prestations</div><h2>Du dépannage d'urgence au sur-mesure complet.</h2>
-<div class="cards">
-<a class="card rv" href="serrurerie-generale.html"><div class="ph"><img src="img/21.jpg" alt="Serrurerie générale" loading="lazy"></div><div class="in"><h3>Serrurerie générale</h3><p>Remplacement de serrure et cylindre, ouverture de porte, blindage, serrure multipoint.</p><span class="more">Voir la prestation →</span></div></a>
-<a class="card rv" href="menuiserie-aluminium.html"><div class="ph"><img src="img/14.jpg" alt="Menuiserie aluminium" loading="lazy"></div><div class="in"><h3>Menuiserie aluminium</h3><p>Fenêtres, châssis coulissants, portes de hall, brise-vue, façades de magasin.</p><span class="more">Voir la prestation →</span></div></a>
-<a class="card rv" href="metallerie.html"><div class="ph"><img src="img/22.jpg" alt="Métallerie sur mesure" loading="lazy"></div><div class="in"><h3>Métallerie sur mesure</h3><p>Garde-corps, escaliers, mezzanines, échelles à crinoline, équipements PMR.</p><span class="more">Voir la prestation →</span></div></a>
-<a class="card rv" href="depannage-vitrerie.html"><div class="ph"><img src="img/14.jpg" alt="Dépannage vitrerie" loading="lazy"></div><div class="in"><h3>Dépannage vitrerie</h3><p>Remplacement de casse, fermeture provisoire, tous types de vitrages.</p><span class="more">Voir la prestation →</span></div></a>
-<a class="card rv" href="remplacement-vitrine.html"><div class="ph"><img src="img/14.jpg" alt="Remplacement de vitrine" loading="lazy"></div><div class="in"><h3>Remplacement de vitrine</h3><p>Vitrine de magasin, double vitrage, verre feuilleté, isolant ou phonique.</p><span class="more">Voir la prestation →</span></div></a>
-<a class="card rv" href="rideaux-metalliques.html"><div class="ph"><img src="img/07.jpg" alt="Rideaux métalliques & stores" loading="lazy"></div><div class="in"><h3>Rideaux métalliques & stores</h3><p>Installation et réparation de rideaux métalliques, volets roulants, stores.</p><span class="more">Voir la prestation →</span></div></a>
-</div></section>
+<section class="alt"><div class="wrap"><div class="stats"><div class="stat rv rv1"><b>29</b><span>réalisations en ligne</span></div><div class="stat rv rv2"><b>3</b><span>départements couverts</span></div><div class="stat rv rv3"><b>0 €</b><span>étude et déplacement</span></div><div class="stat rv rv4"><b>100 %</b><span>fabrication française</span></div></div></div></section>
 
-<section><div class="duo">
-<img src="img/21.jpg" alt="Escalier métallique AVMS Metal" class="rv">
-<div class="rv"><div class="eyebrow">le savoir-faire</div><h2>Chaque pièce, dessinée pour votre bâtiment.</h2>
-<p class="txt">Rien n'est standard : chaque garde-corps, chaque escalier, chaque fermeture est étudié sur place puis fabriqué en atelier, en France. Étude technique et déplacement toujours gratuits, devis clair avant toute intervention.</p>
-<a class="cta" href="a-propos.html">En savoir plus →</a></div>
-</div></section>
+<section><div class="wrap"><div class="eyebrow">nos prestations</div><h2 class="rv">Du dépannage d'urgence au sur-mesure complet.</h2>
+<div class="cards"><a class="card rv rv1" href="serrurerie-generale.html"><div class="ph">
+<img src="img/thumb/08.jpg" srcset="img/thumb/08.jpg 560w, img/08.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Grille de défense, Corbeil-Essonnes" loading="lazy" decoding="async"></div>
+<div class="in"><h3>Serrurerie générale</h3><p>Une porte qui ne ferme plus, une serrure forcée, un cylindre à changer : nos serruriers interviennent en urgence comme sur rendez-vous, et remettent votre fermeture en état dans les règles.</p><span class="more">Voir la prestation →</span></div></a><a class="card rv rv2" href="menuiserie-aluminium.html"><div class="ph">
+<img src="img/thumb/14.jpg" srcset="img/thumb/14.jpg 560w, img/14.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Pare-vue vitré en aluminium" loading="lazy" decoding="async"></div>
+<div class="in"><h3>Menuiserie aluminium</h3><p>Fenêtres, châssis, baies et façades de magasin : nous fabriquons et posons toutes les menuiseries aluminium sur mesure, en neuf comme en rénovation.</p><span class="more">Voir la prestation →</span></div></a><a class="card rv rv3" href="metallerie.html"><div class="ph">
+<img src="img/thumb/22.jpg" srcset="img/thumb/22.jpg 560w, img/22.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Escalier métallique hélicoïdal" loading="lazy" decoding="async"></div>
+<div class="in"><h3>Métallerie sur mesure</h3><p>Garde-corps, escaliers, mezzanines, rampes PMR : chaque ouvrage est étudié sur place, dessiné pour votre bâtiment, puis fabriqué dans nos ateliers en France.</p><span class="more">Voir la prestation →</span></div></a><a class="card rv rv1" href="depannage-vitrerie.html"><div class="ph">
+<img src="img/thumb/26.jpg" srcset="img/thumb/26.jpg 560w, img/26.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Fermeture de bâtiment" loading="lazy" decoding="async"></div>
+<div class="in"><h3>Dépannage vitrerie</h3><p>Une vitre cassée n'attend pas. Nous sécurisons d'abord votre local avec une fermeture provisoire, puis nous remplaçons le vitrage dans les règles de l'art.</p><span class="more">Voir la prestation →</span></div></a><a class="card rv rv2" href="remplacement-vitrine.html"><div class="ph">
+<img src="img/thumb/15.jpg" srcset="img/thumb/15.jpg 560w, img/15.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Garde-corps de terrasse technique" loading="lazy" decoding="async"></div>
+<div class="in"><h3>Remplacement de vitrine</h3><p>Vitrine cassée ou à moderniser : pose de vitre, double vitrage thermique ou phonique, verre feuilleté, pour un commerce comme pour un particulier.</p><span class="more">Voir la prestation →</span></div></a><a class="card rv rv3" href="rideaux-metalliques.html"><div class="ph">
+<img src="img/thumb/06.jpg" srcset="img/thumb/06.jpg 560w, img/06.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Palissade métallique, Corbeil-Essonnes" loading="lazy" decoding="async"></div>
+<div class="in"><h3>Rideaux métalliques et stores</h3><p>Sécuriser une devanture ou moderniser une fermeture : installation et réparation de rideaux métalliques, volets roulants, grilles articulées et stores bannes.</p><span class="more">Voir la prestation →</span></div></a></div></div></section>
 
-<section><div class="eyebrow">réalisations réelles</div><h2>Des chantiers dans tout le 91, 77 et 94.</h2>
-<div class="gal"><a href="img/01.jpg" target="_blank" rel="noopener" class="rv"><img src="img/01.jpg" alt="Réalisation AVMS Metal" loading="lazy"></a><a href="img/02.jpg" target="_blank" rel="noopener" class="rv"><img src="img/02.jpg" alt="Réalisation AVMS Metal" loading="lazy"></a><a href="img/03.jpg" target="_blank" rel="noopener" class="rv"><img src="img/03.jpg" alt="Réalisation AVMS Metal" loading="lazy"></a><a href="img/04.jpg" target="_blank" rel="noopener" class="rv"><img src="img/04.jpg" alt="Réalisation AVMS Metal" loading="lazy"></a><a href="img/05.jpg" target="_blank" rel="noopener" class="rv"><img src="img/05.jpg" alt="Réalisation AVMS Metal" loading="lazy"></a><a href="img/06.jpg" target="_blank" rel="noopener" class="rv"><img src="img/06.jpg" alt="Réalisation AVMS Metal" loading="lazy"></a><a href="img/07.jpg" target="_blank" rel="noopener" class="rv"><img src="img/07.jpg" alt="Réalisation AVMS Metal" loading="lazy"></a><a href="img/08.jpg" target="_blank" rel="noopener" class="rv"><img src="img/08.jpg" alt="Réalisation AVMS Metal" loading="lazy"></a></div>
-<a class="cta outline" href="realisations.html" style="margin-top:2rem">Voir toutes les réalisations →</a>
-</section>
+<section class="alt"><div class="wrap"><div class="duo">
+<div class="rv"><img src="img/22.jpg" srcset="img/thumb/22.jpg 560w, img/22.jpg 1100w" sizes="(max-width:860px) 100vw, 50vw" alt="Escalier métallique hélicoïdal" loading="lazy" decoding="async" class=""></div>
+<div class="rv rv2"><div class="eyebrow">le savoir-faire</div><h2>Chaque pièce, dessinée pour votre bâtiment.</h2>
+<p class="txt">Rien n'est standard : chaque garde-corps, chaque escalier, chaque fermeture est étudié sur place, puis fabriqué dans nos ateliers. Étude technique et déplacement toujours gratuits, devis clair avant toute intervention.</p><a class="cta" href="a-propos.html" style="margin-top:1.7rem">En savoir plus</a></div>
+</div></div></section>
 
-<section><div class="pillars">
-<div class="pillar rv"><i>01</i><b>Étude & déplacement gratuits</b><span>Un technicien se déplace, étudie votre besoin et chiffre sans engagement.</span></div>
-<div class="pillar rv"><i>02</i><b>Fabrication française sur mesure</b><span>Rien n'est standard : chaque pièce est pensée pour votre bâtiment, dans nos ateliers.</span></div>
-<div class="pillar rv"><i>03</i><b>Assurances & garanties</b><span>Responsabilité civile et décennale, garantie de parfait achèvement sur chaque chantier.</span></div>
-</div></section>
+<section><div class="wrap"><div class="eyebrow">réalisations</div><h2 class="rv">Des chantiers réels, dans le 91, le 77 et le 94.</h2>
+<div class="gal"><figure class="rv" data-full="img/01.jpg"><img src="img/thumb/01.jpg" srcset="img/thumb/01.jpg 560w, img/01.jpg 1100w" sizes="(max-width:860px) 50vw, 25vw" alt="Garde-corps en acier, Essonne (91)" loading="lazy" decoding="async"><figcaption>Garde-corps en acier, Essonne (91)</figcaption></figure><figure class="rv" data-full="img/22.jpg"><img src="img/thumb/22.jpg" srcset="img/thumb/22.jpg 560w, img/22.jpg 1100w" sizes="(max-width:860px) 50vw, 25vw" alt="Escalier métallique hélicoïdal" loading="lazy" decoding="async"><figcaption>Escalier métallique hélicoïdal</figcaption></figure><figure class="rv" data-full="img/13.jpg"><img src="img/thumb/13.jpg" srcset="img/thumb/13.jpg 560w, img/13.jpg 1100w" sizes="(max-width:860px) 50vw, 25vw" alt="Portail métallique laqué sur mesure" loading="lazy" decoding="async"><figcaption>Portail métallique laqué sur mesure</figcaption></figure><figure class="rv" data-full="img/09.jpg"><img src="img/thumb/09.jpg" srcset="img/thumb/09.jpg 560w, img/09.jpg 1100w" sizes="(max-width:860px) 50vw, 25vw" alt="Garde-corps et marquise, Corbeil-Essonnes" loading="lazy" decoding="async"><figcaption>Garde-corps et marquise, Corbeil-Essonnes</figcaption></figure><figure class="rv" data-full="img/15.jpg"><img src="img/thumb/15.jpg" srcset="img/thumb/15.jpg 560w, img/15.jpg 1100w" sizes="(max-width:860px) 50vw, 25vw" alt="Garde-corps de terrasse technique" loading="lazy" decoding="async"><figcaption>Garde-corps de terrasse technique</figcaption></figure><figure class="rv" data-full="img/29.jpg"><img src="img/thumb/29.jpg" srcset="img/thumb/29.jpg 560w, img/29.jpg 1100w" sizes="(max-width:860px) 50vw, 25vw" alt="Main courante en acier" loading="lazy" decoding="async"><figcaption>Main courante en acier</figcaption></figure><figure class="rv" data-full="img/06.jpg"><img src="img/thumb/06.jpg" srcset="img/thumb/06.jpg 560w, img/06.jpg 1100w" sizes="(max-width:860px) 50vw, 25vw" alt="Palissade métallique, Corbeil-Essonnes" loading="lazy" decoding="async"><figcaption>Palissade métallique, Corbeil-Essonnes</figcaption></figure><figure class="rv" data-full="img/08.jpg"><img src="img/thumb/08.jpg" srcset="img/thumb/08.jpg 560w, img/08.jpg 1100w" sizes="(max-width:860px) 50vw, 25vw" alt="Grille de défense, Corbeil-Essonnes" loading="lazy" decoding="async"><figcaption>Grille de défense, Corbeil-Essonnes</figcaption></figure></div>
+<a class="cta outline" href="realisations.html" style="margin-top:2.2rem">Voir les 29 réalisations</a></div></section>
 
-<section><div class="review rv"><p>« Technicien très professionnel et travail soigné. Encore merci. »</p><cite>Josianne · cliente</cite></div>
-<a class="cta outline" href="avis.html">Voir tous les avis →</a></section>
+<section class="alt"><div class="wrap"><div class="eyebrow">pourquoi nous</div><h2 class="rv">Ce qui fait la différence.</h2>
+<div class="pillars"><div class="pillar rv rv1"><i>01</i><b>Étude et déplacement gratuits</b><span>Un technicien se déplace, étudie votre besoin et chiffre sans engagement.</span></div><div class="pillar rv rv2"><i>02</i><b>Fabrication française sur mesure</b><span>Chaque pièce est pensée pour votre bâtiment et fabriquée dans nos ateliers.</span></div><div class="pillar rv rv3"><i>03</i><b>Assurances et garanties</b><span>Responsabilité civile, dommages-ouvrage et garantie de parfait achèvement.</span></div></div></div></section>
 
+<section><div class="wrap"><div class="eyebrow">avis client</div>
+<div class="review rv"><div class="stars">★★★★★</div><p>« Technicien très professionnel et travail soigné. Encore merci. »</p><cite>Josianne, cliente</cite></div>
+<a class="cta outline" href="avis.html">Voir les avis</a></div></section>
 <footer><div class="fgrid">
-<div><h4>AVMS METAL</h4><p>Serrurerie, métallerie, vitrerie. Fabrication française sur mesure, étude et déplacement gratuits. Intervention rapide dans le 91, le sud du 77 (Sénart) et le 94.</p></div>
-<div><h4>Prestations</h4><a href="serrurerie-generale.html">Serrurerie générale</a><a href="menuiserie-aluminium.html">Menuiserie aluminium</a><a href="metallerie.html">Métallerie</a><a href="depannage-vitrerie.html">Dépannage vitrerie</a><a href="remplacement-vitrine.html">Remplacement de vitrine</a><a href="rideaux-metalliques.html">Rideaux métalliques & stores</a></div>
+<div><h4>AVMS Metal</h4><p>Serrurerie, métallerie, vitrerie et menuiserie aluminium. Fabrication française sur mesure, étude et déplacement gratuits, intervention rapide dans le 91, le sud du 77 et le 94.</p>
+<p style="margin-top:1rem"><a href="tel:+33769860395" style="color:var(--accent);font-weight:700">07 69 86 03 95</a></p>
+<p><a href="mailto:avms.metal@gmail.com" style="color:var(--accent)">avms.metal@gmail.com</a></p></div>
+<div><h4>Prestations</h4><a href="serrurerie-generale.html">Serrurerie générale</a><a href="menuiserie-aluminium.html">Menuiserie aluminium</a><a href="metallerie.html">Métallerie sur mesure</a><a href="depannage-vitrerie.html">Dépannage vitrerie</a><a href="remplacement-vitrine.html">Remplacement de vitrine</a><a href="rideaux-metalliques.html">Rideaux métalliques et stores</a></div>
 <div><h4>Entreprise</h4><a href="a-propos.html">Présentation</a><a href="realisations.html">Réalisations</a><a href="avis.html">Avis clients</a><a href="contact.html">Contact</a><a href="mentions-legales.html">Mentions légales</a></div>
 </div>
-<div class="fbottom"><span>© 2026 AVMS Metal — maquette réalisée par ClearDesign</span><span>07 69 86 03 95 · avms.metal@gmail.com</span></div>
-</footer>
+<div class="fbottom"><span>© 2026 AVMS Metal</span><span>Maquette réalisée par ClearDesign</span></div></footer>
 <script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{rootMargin:'-8% 0px'});
+// menu mobile
+const bg=document.querySelector('.burger'),mm=document.querySelector('.mobilemenu'),sc=document.querySelector('.scrim');
+function closeMM(){mm.classList.remove('open');sc.classList.remove('on');bg.setAttribute('aria-expanded','false')}
+if(bg){bg.addEventListener('click',()=>{const o=mm.classList.toggle('open');sc.classList.toggle('on',o);bg.setAttribute('aria-expanded',o)});
+sc.addEventListener('click',closeMM);
+document.querySelector('.mm-close')?.addEventListener('click',closeMM);
+addEventListener('keydown',e=>{if(e.key==='Escape')closeMM()});}
+// titres animés mot par mot
+document.querySelectorAll('h1.anim').forEach(h=>{const t=h.textContent.trim();h.setAttribute('aria-label',t);h.innerHTML='';
+t.split(' ').forEach((w,i,a)=>{const s=document.createElement('span');s.className='w';const b=document.createElement('b');b.textContent=w;
+b.style.animationDelay=(0.12+i*0.055)+'s';s.appendChild(b);h.appendChild(s);if(i<a.length-1)h.appendChild(document.createTextNode(' '))})});
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{rootMargin:'-6% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-document.querySelectorAll('.navlinks a').forEach(a=>{if(a.getAttribute('href')===location.pathname.split('/').pop()||(location.pathname.endsWith('/')&&a.getAttribute('href')==='index.html'))a.classList.add('on')});
-</script>
-</body></html>
+setTimeout(()=>document.querySelectorAll('.rv:not(.on)').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*1.15)e.classList.add('on')}),2200);
+// lightbox
+const figs=[...document.querySelectorAll('.gal figure')];
+if(figs.length){const lb=document.createElement('div');lb.className='lb';lb.innerHTML='<button class="x" aria-label="Fermer">✕</button><button class="prev" aria-label="Précédent">‹</button><img alt=""><button class="next" aria-label="Suivant">›</button><div class="cap"></div>';document.body.appendChild(lb);
+let idx=0;const im=lb.querySelector('img'),cp=lb.querySelector('.cap');
+const show=i=>{idx=(i+figs.length)%figs.length;const f=figs[idx];im.src=f.dataset.full||f.querySelector('img').src;im.alt=f.querySelector('img').alt;cp.textContent=f.querySelector('figcaption')?.textContent||'';};
+figs.forEach((f,i)=>f.addEventListener('click',()=>{show(i);lb.classList.add('on')}));
+lb.querySelector('.x').onclick=()=>lb.classList.remove('on');
+lb.querySelector('.prev').onclick=e=>{e.stopPropagation();show(idx-1)};
+lb.querySelector('.next').onclick=e=>{e.stopPropagation();show(idx+1)};
+lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('on')});
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowRight')show(idx+1);if(e.key==='ArrowLeft')show(idx-1)});}
+</script></body></html>
