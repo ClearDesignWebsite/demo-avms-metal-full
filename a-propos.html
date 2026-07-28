@@ -444,6 +444,21 @@ document.querySelectorAll('[data-count]').forEach(el=>ioc.observe(el));
   addEventListener('resize',req,{passive:true});
   apply();
 })();
+// formulaire : sur Netlify il part vraiment ; ailleurs (aperçu GitHub) on confirme sans casser
+(function(){const f=document.querySelector('form[name=contact]');if(!f)return;
+const surNetlify=/netlify\.app$/.test(location.hostname)||location.hostname.endsWith('.netlify.app');
+f.addEventListener('submit',e=>{
+  if(surNetlify)return; // Netlify gère l'envoi nativement
+  e.preventDefault();
+  if(!f.checkValidity()){f.reportValidity();return}
+  const b=f.querySelector('button[type=submit]');
+  const box=document.createElement('p');
+  box.setAttribute('role','status');
+  box.style.cssText='margin-top:1.2rem;padding:1rem 1.2rem;border:1px solid var(--accent);border-radius:8px;color:var(--ink);background:color-mix(in srgb,var(--accent) 12%,transparent)';
+  box.textContent='Merci, votre demande est bien prise en compte. Sur la version en ligne définitive, elle arrive directement dans la boîte mail de l\'entreprise.';
+  f.replaceChildren(box);
+  if(b)b.remove();
+});})();
 // lightbox
 const figs=[...document.querySelectorAll('.gal figure')];
 if(figs.length){const lb=document.createElement('div');lb.className='lb';lb.innerHTML='<button class="x" aria-label="Fermer">✕</button><button class="prev" aria-label="Précédent">‹</button><img alt=""><button class="next" aria-label="Suivant">›</button><div class="cap"></div>';document.body.appendChild(lb);
