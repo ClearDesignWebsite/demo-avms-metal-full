@@ -2,7 +2,7 @@
 <title>Avis clients · AVMS Metal</title><meta name="description" content="Avis clients AVMS Metal."><meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23d97a2b'/><text x='32' y='45' font-family='Arial Black,Arial,sans-serif' font-size='38' font-weight='900' text-anchor='middle' fill='%23111212'>A</text></svg>"><meta property="og:title" content="Avis clients · AVMS Metal"><meta property="og:description" content="Avis clients AVMS Metal.">
 <meta property="og:type" content="website"><meta property="og:image" content="https://cleardesignwebsite.github.io/demo-avms-metal-full/img/09.jpg"><meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet"><style>:root{--bg:#111212;--panel:#181917;--panel2:#1f201d;--ink:#f2efe9;--soft:#b0aca1;--accent:#d97a2b;--accent2:#f0964a;--line:#3a3b36;--display:'Bebas Neue',sans-serif;--body:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet"><style>:root{--bg:#141110;--panel:#1c1816;--panel2:#242019;--ink:#f4efe7;--soft:#b3a79a;--accent:#ccae94;--accent2:#e3cbb4;--line:#3d352d;--display:'Bebas Neue',sans-serif;--body:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -89,22 +89,63 @@ ul.services li{color:var(--ink);padding-left:1.4rem;position:relative;font-size:
 ul.services li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--accent)}
 
 /* ── CARDS ── */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.3rem;margin-top:2.6rem}
-.card{background:var(--panel2);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .35s cubic-bezier(.19,1,.22,1),border-color .3s,box-shadow .35s;display:flex;flex-direction:column}
-.card:hover{transform:translateY(-7px);border-color:color-mix(in srgb,var(--accent) 55%,transparent);box-shadow:0 18px 40px rgba(0,0,0,.4)}
-.card .ph{aspect-ratio:4/3;overflow:hidden;background:var(--panel)}
-.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.19,1,.22,1)}
-.card:hover .ph img{transform:scale(1.07)}
-.card .in{padding:1.35rem 1.45rem 1.6rem;flex:1;display:flex;flex-direction:column}
-.card p{color:var(--soft);font-size:.93rem;margin-top:.4rem;flex:1}
-.card .more{display:inline-block;margin-top:1rem;font-size:.8rem;color:var(--accent);font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;margin-top:2.8rem}
+.card{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--ink);
+  min-height:430px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;
+  transition:transform .45s cubic-bezier(.19,1,.22,1),border-color .35s,box-shadow .45s}
+.card:hover{transform:translateY(-9px);border-color:color-mix(in srgb,var(--accent) 65%,transparent);box-shadow:0 24px 55px rgba(0,0,0,.55)}
+.card .ph{position:absolute;inset:0;z-index:-2;overflow:hidden;background:var(--panel)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.19,1,.22,1)}
+.card:hover .ph img{transform:scale(1.09)}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,rgba(10,9,8,.97) 22%,rgba(10,9,8,.72) 52%,rgba(10,9,8,.18) 100%);transition:opacity .4s}
+.card:hover::before{background:linear-gradient(to top,rgba(10,9,8,.98) 26%,rgba(10,9,8,.78) 58%,rgba(10,9,8,.24) 100%)}
+.card .num{position:absolute;top:1.1rem;left:1.3rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;color:var(--accent);
+  background:color-mix(in srgb,#0a0908 65%,transparent);padding:.3rem .65rem;border-radius:20px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.card .in{padding:1.5rem 1.55rem 1.7rem}
+.card h3{transition:color .3s}
+.card:hover h3{color:var(--accent)}
+.card p{color:var(--soft);font-size:.93rem;margin-top:.45rem;
+  max-height:0;opacity:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1),opacity .4s,margin .4s}
+.card:hover p,.card:focus-within p{max-height:9rem;opacity:1}
+.card .more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.82rem;color:var(--accent);font-weight:700}
+.card .more::after{content:"→";transition:transform .3s}
+.card:hover .more::after{transform:translateX(5px)}
+@media(max-width:860px){.card{min-height:360px}.card p{max-height:9rem;opacity:1}}
 
-/* ── GALERIE + LIGHTBOX ── */
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.9rem;margin-top:1.8rem}
-.gal figure{margin:0;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--panel);cursor:zoom-in;position:relative}
-.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .5s cubic-bezier(.19,1,.22,1)}
-.gal figure:hover img{transform:scale(1.07)}
-.gal figcaption{padding:.65rem .85rem;font-size:.8rem;color:var(--soft);border-top:1px solid var(--line)}
+/* ── GALERIE ÉDITORIALE + LIGHTBOX ── */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin-top:2rem}
+.gal figure{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--panel);cursor:zoom-in;position:relative;grid-column:span 4}
+.gal figure img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.19,1,.22,1)}
+.gal figure:hover img{transform:scale(1.06)}
+/* rythme éditorial : tailles alternées */
+.gal figure:nth-child(7n+1){grid-column:span 7;aspect-ratio:16/10}
+.gal figure:nth-child(7n+2){grid-column:span 5;aspect-ratio:4/5}
+.gal figure:nth-child(7n+3){grid-column:span 4;aspect-ratio:1}
+.gal figure:nth-child(7n+4){grid-column:span 4;aspect-ratio:1}
+.gal figure:nth-child(7n+5){grid-column:span 4;aspect-ratio:1}
+.gal figure:nth-child(7n+6){grid-column:span 5;aspect-ratio:4/3}
+.gal figure:nth-child(7n){grid-column:span 7;aspect-ratio:16/10}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.2rem .95rem .8rem;font-size:.82rem;color:#fff;
+  background:linear-gradient(to top,rgba(0,0,0,.88),transparent);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.gal figure:hover figcaption,.gal figure:focus-within figcaption{opacity:1;transform:none}
+.gal figure::after{content:"＋";position:absolute;top:.8rem;right:.9rem;width:34px;height:34px;border-radius:50%;
+  background:color-mix(in srgb,var(--accent) 92%,transparent);color:#141110;display:grid;place-items:center;font-size:1.1rem;font-weight:700;
+  opacity:0;transform:scale(.7);transition:opacity .35s,transform .35s}
+.gal figure:hover::after{opacity:1;transform:none}
+@media(max-width:860px){.gal{grid-template-columns:1fr 1fr;gap:.7rem}
+.gal figure,.gal figure:nth-child(7n+1),.gal figure:nth-child(7n+2),.gal figure:nth-child(7n+3),.gal figure:nth-child(7n+4),
+.gal figure:nth-child(7n+5),.gal figure:nth-child(7n+6),.gal figure:nth-child(7n){grid-column:span 1;aspect-ratio:1}
+.gal figcaption{opacity:1;transform:none;font-size:.72rem;padding:1.6rem .6rem .55rem}}
+
+/* ── BANDEAU MARQUES ── */
+.marq{overflow:hidden;white-space:nowrap;padding:1.4rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marq-track{display:inline-flex;gap:2.6rem;animation:scroll 42s linear infinite}
+.marq:hover .marq-track{animation-play-state:paused}
+.marq span{font-family:var(--display);font-size:1.35rem;color:var(--soft);letter-spacing:.05em;transition:color .3s}
+.marq span:hover{color:var(--accent)}
+@keyframes scroll{to{transform:translateX(-50%)}}
 .lb{position:fixed;inset:0;z-index:90;background:rgba(6,7,6,.95);display:none;align-items:center;justify-content:center;padding:4vh 3vw}
 .lb.on{display:flex}
 .lb img{max-width:100%;max-height:82vh;object-fit:contain;border-radius:6px}
@@ -139,10 +180,37 @@ ul.services li::before{content:"";position:absolute;left:0;top:.62em;width:8px;h
 form{max-width:44rem}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:640px){.frow{grid-template-columns:1fr}}
-label{display:block;font-size:.84rem;color:var(--soft);margin:.9rem 0 .35rem}
-input,textarea,select{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--ink);border-radius:7px;padding:.85rem 1rem;font:inherit;font-size:.96rem;min-height:48px}
-input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
-textarea{min-height:130px;resize:vertical}
+label{display:block;font-size:.84rem;color:var(--soft);margin:.9rem 0 .35rem;font-weight:600}
+input,textarea,select{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:.9rem 1rem;font:inherit;font-size:.96rem;min-height:50px;transition:border-color .25s,box-shadow .25s}
+input:hover,textarea:hover,select:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+textarea{min-height:140px;resize:vertical}
+/* select stylé (flèche maison, plus de rendu système) */
+select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:2.8rem;
+  background-image:linear-gradient(45deg,transparent 50%,var(--accent) 50%),linear-gradient(135deg,var(--accent) 50%,transparent 50%);
+  background-position:calc(100% - 20px) calc(50% + 2px),calc(100% - 14px) calc(50% + 2px);
+  background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+select option{background:var(--panel2);color:var(--ink)}
+
+/* ── AVIS (grille) ── */
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem;margin-top:2rem}
+.rcard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:1.6rem;display:flex;flex-direction:column;transition:transform .35s,border-color .3s}
+.rcard:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.rcard .stars{margin-bottom:.7rem}
+.rcard p{font-size:.97rem;line-height:1.75;flex:1}
+.rcard .who{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:.72rem;color:var(--soft)}
+.rcard .who b{color:var(--accent);font-family:var(--body);font-size:.92rem}
+.notebig{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-bottom:.5rem}
+.notebig .n{font-family:var(--display);font-size:4rem;line-height:1;color:var(--accent)}
+.notebig .meta{font-size:.9rem;color:var(--soft)}
+
+/* ── HORAIRES ── */
+.hours{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:1.2rem}
+.hours div{display:flex;justify-content:space-between;padding:.75rem 1.1rem;font-size:.92rem;border-bottom:1px solid var(--line)}
+.hours div:last-child{border-bottom:none}
+.hours div.closed{color:var(--soft)}
+.hours div b{font-weight:600}
 button[type=submit]{margin-top:1.4rem;border:none;cursor:pointer;font-family:inherit}
 
 /* ── CONTACT ── */
@@ -181,9 +249,15 @@ footer{border-top:1px solid var(--line);padding:3rem max(1.1rem,4vw) 2rem;backgr
 <a class="callbar" href="tel:+33769860395">Appeler 07 69 86 03 95</a>
 <div class="pagehero"><div class="wrap"><div class="breadcrumb"><a href="index.html">Accueil</a> / Avis</div>
 <p class="kicker">Ce que disent nos clients</p><h1 class="anim">Avis clients</h1></div></div>
-<section><div class="wrap"><div class="review rv"><div class="stars">★★★★★</div><p>« Technicien très professionnel et travail soigné. Encore merci. »</p><cite>Josianne, cliente</cite></div>
-<p class="txt" style="margin-top:2rem">Vous avez fait appel à AVMS Metal ? Votre retour aide les prochains clients à choisir en confiance. Contactez-nous pour partager votre avis.</p>
-<div class="herobtns" style="opacity:1;animation:none"><a class="cta" href="contact.html">Nous contacter</a><a class="cta outline" href="tel:+33769860395">Appeler 07 69 86 03 95</a></div></div></section>
+<section><div class="wrap">
+<div class="notebig rv"><span class="n">5,0</span><div class="meta"><div class="stars">★★★★★</div>4 avis Pages Jaunes et 2 avis Google, tous à 5 sur 5.</div></div>
+<div class="reviews"><div class="rcard rv rv1"><div class="stars">★★★★★</div>
+<p>« Très satisfait de la rénovation de notre verrière, au 7ème étage d'un immeuble d'Issy-les-Moulineaux. »</p><p style="margin-top:.8rem;color:var(--soft);font-size:.9rem">Notre verrière créée en 1995 par une autre entreprise commençait à se dégrader. Diagnostic technique très clair sur la réparation à effectuer, devis raisonnable et intervention rapide. Contact très agréable. Je recommande.</p><div class="who"><b>GEFF</b><span>21 juin 2022</span></div></div><div class="rcard rv rv2"><div class="stars">★★★★★</div>
+<p>« Excellent artisan, très professionnel, très compétent dans ses domaines. Fiable, de parole, respectueux des délais. Je le recommande vivement. Très contente de son travail de grande qualité. »</p><div class="who"><b>SifromParis</b><span>16 septembre 2021</span></div></div><div class="rcard rv rv3"><div class="stars">★★★★★</div>
+<p>« Rapide et de qualité. Je recommande vivement. »</p><div class="who"><b>Emma1504</b><span>1 avril 2021</span></div></div><div class="rcard rv rv1"><div class="stars">★★★★★</div>
+<p>« Technicien très professionnel et travail soigné. Encore merci. »</p><div class="who"><b>Josianne</b><span>Cliente</span></div></div></div>
+<p class="txt" style="margin-top:2.5rem">Vous avez fait appel à AVMS Metal ? Votre retour aide les prochains clients à choisir en confiance. Contactez-nous pour partager votre avis.</p>
+<div class="herobtns" style="opacity:1;animation:none"><a class="cta" href="contact.html">Demander un devis</a><a class="cta outline" href="tel:+33769860395">Appeler 07 69 86 03 95</a></div></div></section>
 <section class="alt"><div class="wrap"><div class="eyebrow">nos engagements</div><h2 class="rv">Nos engagements, à chaque chantier.</h2>
 <div class="pillars"><div class="pillar rv rv1"><i>01</i><b>Étude technique</b><span>Un diagnostic précis avant toute intervention, sur place.</span></div><div class="pillar rv rv2"><i>02</i><b>Déplacement gratuit</b><span>Aucun frais pour venir constater votre besoin.</span></div><div class="pillar rv rv3"><i>03</i><b>Devis gratuit</b><span>Chiffrage clair et détaillé, sans engagement.</span></div></div></div></section>
 <footer><div class="fgrid">
@@ -210,6 +284,18 @@ b.style.animationDelay=(0.12+i*0.055)+'s';s.appendChild(b);h.appendChild(s);if(i
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{rootMargin:'-6% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 setTimeout(()=>document.querySelectorAll('.rv:not(.on)').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*1.15)e.classList.add('on')}),2200);
+// compteurs animés
+function runCount(el){const raw=el.dataset.count,to=parseFloat(raw),suf=el.dataset.suf||'';
+if(isNaN(to)){return}let st=null;const b=el.querySelector('b');
+function f(ts){st=st||ts;const p=Math.min(1,(ts-st)/1300),e=1-Math.pow(1-p,3);
+b.textContent=(to%1?(to*e).toFixed(1):Math.round(to*e))+suf;if(p<1)requestAnimationFrame(f)}
+requestAnimationFrame(f)}
+const ioc=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){runCount(e.target);ioc.unobserve(e.target)}}),{rootMargin:'-10% 0px'});
+document.querySelectorAll('[data-count]').forEach(el=>ioc.observe(el));
+// parallaxe douce sur le hero
+const hb=document.querySelector('.hero-bg img');
+if(hb&&!matchMedia('(prefers-reduced-motion: reduce)').matches){let last=-1;
+(function tick(){const y=scrollY;if(y!==last&&y<innerHeight*1.2){last=y;hb.style.transform='translate3d(0,'+(y*.22)+'px,0)'}requestAnimationFrame(tick)})()}
 // lightbox
 const figs=[...document.querySelectorAll('.gal figure')];
 if(figs.length){const lb=document.createElement('div');lb.className='lb';lb.innerHTML='<button class="x" aria-label="Fermer">✕</button><button class="prev" aria-label="Précédent">‹</button><img alt=""><button class="next" aria-label="Suivant">›</button><div class="cap"></div>';document.body.appendChild(lb);
