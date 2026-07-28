@@ -51,9 +51,10 @@ background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:
 .hero-bg img{width:100%;height:100%;object-fit:cover;animation:kb 22s ease-out forwards}
 @keyframes kb{from{transform:scale(1.1)}to{transform:scale(1)}}
 .hero-veil{position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(to top,var(--bg) 4%,color-mix(in srgb,var(--bg) 72%,transparent) 38%,color-mix(in srgb,var(--bg) 30%,transparent) 78%)}
-.hero-inner{max-width:1200px;margin:0 auto;width:100%}
-.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+  background:linear-gradient(to top,var(--bg) 6%,color-mix(in srgb,var(--bg) 88%,transparent) 34%,color-mix(in srgb,var(--bg) 58%,transparent) 62%,color-mix(in srgb,var(--bg) 26%,transparent) 92%)}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;position:relative}
+.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.hero .kicker,.hero h1,.hero .lead{text-shadow:0 2px 18px rgba(0,0,0,.75)}
 h1{font-family:var(--display);font-size:clamp(2.7rem,7.5vw,5.6rem);line-height:.97;letter-spacing:.008em;max-width:17ch}
 h1 .w{display:inline-block;overflow:hidden;vertical-align:top}
 h1 .w b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:rise .85s cubic-bezier(.19,1,.22,1) forwards}
