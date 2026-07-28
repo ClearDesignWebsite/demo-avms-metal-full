@@ -120,7 +120,7 @@ section.alt{background:var(--panel);border-top:1px solid var(--line);border-bott
 .eyebrow::after{content:"";flex:1;max-width:4.5rem;height:1px;background:var(--line)}
 h2{font-family:var(--display);font-size:clamp(1.75rem,3.8vw,2.7rem);line-height:1.12;letter-spacing:.008em;margin-bottom:1rem;max-width:22ch}
 h3{font-family:var(--display);font-size:1.42rem;line-height:1.2;letter-spacing:.01em;margin-bottom:.45rem}
-.txt{color:var(--soft);max-width:44rem;line-height:1.85}
+.txt{color:var(--soft);max-width:62ch;line-height:1.85}
 .txt+.txt{margin-top:1rem}
 ul.services{list-style:none;margin-top:1.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem 2rem;max-width:44rem}
 ul.services li{color:var(--ink);padding-left:1.4rem;position:relative;font-size:.98rem}
@@ -141,15 +141,15 @@ ul.services li::before{content:"";position:absolute;left:0;top:.62em;width:8px;h
 .card .num{position:absolute;top:1.1rem;left:1.3rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;color:var(--accent);
   background:color-mix(in srgb,#0a0908 65%,transparent);padding:.3rem .65rem;border-radius:20px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .card .in{padding:1.5rem 1.55rem 1.7rem}
-.card h3{transition:color .3s}
+.card h3{transition:color .3s;max-width:15ch}
 .card:hover h3{color:var(--accent)}
-.card p{color:var(--soft);font-size:.93rem;margin-top:.45rem;
-  max-height:0;opacity:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1),opacity .4s,margin .4s}
-.card:hover p,.card:focus-within p{max-height:9rem;opacity:1}
-.card .more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.82rem;color:var(--accent);font-weight:700}
+/* description TOUJOURS lisible, largeur de ligne courte (jamais du texte étalé) */
+.card p{color:#d6cfc6;font-size:.9rem;line-height:1.6;margin-top:.5rem;max-width:34ch;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.05rem;font-size:.82rem;color:var(--accent);font-weight:700}
 .card .more::after{content:"→";transition:transform .3s}
 .card:hover .more::after{transform:translateX(5px)}
-@media(max-width:860px){.card{min-height:360px}.card p{max-height:9rem;opacity:1}}
+@media(max-width:860px){.card{min-height:340px}}
 
 /* ── GALERIE ÉDITORIALE + LIGHTBOX ── */
 .gal{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin-top:2rem}
@@ -291,35 +291,57 @@ footer{border-top:1px solid var(--line);padding:3rem max(1.1rem,4vw) 2rem;backgr
 <div class="scrim"></div>
 <aside class="mobilemenu"><button class="mm-close" aria-label="Fermer le menu">✕</button><a href="index.html">Accueil</a><a href="prestations.html">Prestations</a><a href="realisations.html">Réalisations</a><a href="a-propos.html">AVMS Metal</a><a href="avis.html">Avis</a><a href="contact.html">Contact</a><a class="mm-cta" href="contact.html">Demander un devis</a></aside>
 <a class="callbar" href="tel:+33769860395">Appeler 07 69 86 03 95</a>
-<div class="heroScroll"><header class="hero"><div class="hero-bg"><img src="img/22.jpg" alt="Escalier métallique hélicoïdal" fetchpriority="high"></div><div class="hero-veil"></div><div class="shutter" aria-hidden="true"><span class="hint">faites défiler pour ouvrir</span></div>
+<div class="heroScroll"><header class="hero"><div class="hero-bg"><img src="img/09.jpg" alt="Garde-corps et marquise, Corbeil-Essonnes" fetchpriority="high"></div><div class="hero-veil"></div><div class="shutter" aria-hidden="true"><span class="hint">faites défiler pour ouvrir</span></div>
 <div class="hero-inner"><p class="kicker">Serrurerie · Métallerie · Vitrerie · Corbeil-Essonnes (91)</p><h1 class="anim">Le métal, taillé pour durer.</h1>
 <p class="lead">Garde-corps, portails, escaliers, fermetures de bâtiment : chaque pièce est étudiée sur place et fabriquée sur mesure, en France. Intervention rapide dans le 91, le sud du 77 et le 94.</p>
 <div class="herobtns"><a class="cta" href="contact.html">Demander un devis</a><a class="cta outline" href="realisations.html">Voir nos réalisations</a></div>
 </div></header></div>
 
-<section class="alt"><div class="wrap"><div class="stats">{stats}</div></div></section>
+<section class="alt"><div class="wrap"><div class="stats"><div class="stat rv rv1" data-count="5.0" data-dec="1" data-suf=""><b>5,0</b><span>note moyenne sur 5</span></div><div class="stat rv rv2" data-count="6" data-dec="0" data-suf=""><b>6</b><span>avis clients, tous 5 étoiles</span></div><div class="stat rv rv3" data-count="29" data-dec="0" data-suf=""><b>29</b><span>réalisations en ligne</span></div><div class="stat rv rv4" data-count="3" data-dec="0" data-suf=""><b>3</b><span>départements couverts</span></div></div></div></section>
 
-<section><div class="wrap"><div class="eyebrow">nos prestations</div><h2 class="rv">{cfg['services_title']}</h2>
-{cards(SERVICES)}</div></section>
+<section><div class="wrap"><div class="eyebrow">nos prestations</div><h2 class="rv">Du dépannage d'urgence au sur-mesure complet.</h2>
+<div class="cards"><a class="card rv rv1" href="serrurerie-generale.html"><div class="ph">
+<img src="img/thumb/08.jpg" srcset="img/thumb/08.jpg 560w, img/08.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Grille de défense, Corbeil-Essonnes" loading="lazy" decoding="async"></div>
+<span class="num">01</span>
+<div class="in"><h3>Serrurerie générale</h3><p>Une porte qui ne ferme plus, une serrure forcée, un cylindre à changer : nos serruriers interviennent en urgence comme sur rendez-vous, et remettent votre fermeture en état dans les règles.</p><span class="more">Voir la prestation</span></div></a><a class="card rv rv2" href="menuiserie-aluminium.html"><div class="ph">
+<img src="img/thumb/14.jpg" srcset="img/thumb/14.jpg 560w, img/14.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Pare-vue vitré en aluminium" loading="lazy" decoding="async"></div>
+<span class="num">02</span>
+<div class="in"><h3>Menuiserie aluminium</h3><p>Fenêtres, châssis, baies et façades de magasin : nous fabriquons et posons toutes les menuiseries aluminium sur mesure, en neuf comme en rénovation.</p><span class="more">Voir la prestation</span></div></a><a class="card rv rv3" href="metallerie.html"><div class="ph">
+<img src="img/thumb/22.jpg" srcset="img/thumb/22.jpg 560w, img/22.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Escalier métallique hélicoïdal" loading="lazy" decoding="async"></div>
+<span class="num">03</span>
+<div class="in"><h3>Métallerie sur mesure</h3><p>Garde-corps, escaliers, mezzanines, rampes PMR : chaque ouvrage est étudié sur place, dessiné pour votre bâtiment, puis fabriqué dans nos ateliers en France.</p><span class="more">Voir la prestation</span></div></a><a class="card rv rv1" href="depannage-vitrerie.html"><div class="ph">
+<img src="img/thumb/26.jpg" srcset="img/thumb/26.jpg 560w, img/26.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Fermeture de bâtiment" loading="lazy" decoding="async"></div>
+<span class="num">04</span>
+<div class="in"><h3>Dépannage vitrerie</h3><p>Une vitre cassée n'attend pas. Nous sécurisons d'abord votre local avec une fermeture provisoire, puis nous remplaçons le vitrage dans les règles de l'art.</p><span class="more">Voir la prestation</span></div></a><a class="card rv rv2" href="remplacement-vitrine.html"><div class="ph">
+<img src="img/thumb/15.jpg" srcset="img/thumb/15.jpg 560w, img/15.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Garde-corps de terrasse technique" loading="lazy" decoding="async"></div>
+<span class="num">05</span>
+<div class="in"><h3>Remplacement de vitrine</h3><p>Vitrine cassée ou à moderniser : pose de vitre, double vitrage thermique ou phonique, verre feuilleté, pour un commerce comme pour un particulier.</p><span class="more">Voir la prestation</span></div></a><a class="card rv rv3" href="rideaux-metalliques.html"><div class="ph">
+<img src="img/thumb/06.jpg" srcset="img/thumb/06.jpg 560w, img/06.jpg 1100w" sizes="(max-width:860px) 100vw, 33vw" alt="Palissade métallique, Corbeil-Essonnes" loading="lazy" decoding="async"></div>
+<span class="num">06</span>
+<div class="in"><h3>Rideaux métalliques et stores</h3><p>Sécuriser une devanture ou moderniser une fermeture : installation et réparation de rideaux métalliques, volets roulants, grilles articulées et stores bannes.</p><span class="more">Voir la prestation</span></div></a></div></div></section>
 
 <section class="alt"><div class="wrap"><div class="duo">
-<div class="rv">{img_tag(cfg['about_img'], sizes="(max-width:860px) 100vw, 50vw")}</div>
-<div class="rv rv2"><div class="eyebrow">le savoir-faire</div><h2>{cfg['about_title']}</h2>
-<p class="txt">{cfg['about_p']}</p><a class="cta" href="a-propos.html" style="margin-top:1.7rem">En savoir plus</a></div>
+<div class="rv"><img src="img/22.jpg" srcset="img/thumb/22.jpg 560w, img/22.jpg 1100w" sizes="(max-width:860px) 100vw, 50vw" alt="Escalier métallique hélicoïdal" loading="lazy" decoding="async" class=""></div>
+<div class="rv rv2"><div class="eyebrow">le savoir-faire</div><h2>Chaque pièce, dessinée pour votre bâtiment.</h2>
+<p class="txt">Rien n'est standard : chaque garde-corps, chaque escalier, chaque fermeture est étudié sur place, puis fabriqué dans nos ateliers. Étude technique et déplacement toujours gratuits, devis clair avant toute intervention.</p><a class="cta" href="a-propos.html" style="margin-top:1.7rem">En savoir plus</a></div>
 </div></div></section>
 
-<section><div class="wrap"><div class="eyebrow">réalisations</div><h2 class="rv">{cfg['gal_title']}</h2>
-{gal(cfg['home_gal'])}
-<a class="cta outline" href="realisations.html" style="margin-top:2.2rem">Voir les {len(PHOTOS)} réalisations</a></div></section>
+<section><div class="wrap"><div class="eyebrow">réalisations</div><h2 class="rv">Des chantiers réels, dans le 91, le 77 et le 94.</h2>
+<div class="gal"><figure class="rv" data-full="img/01.jpg" tabindex="0"><img src="img/thumb/01.jpg" srcset="img/thumb/01.jpg 560w, img/01.jpg 1100w" sizes="(max-width:860px) 50vw, 40vw" alt="Garde-corps en acier, Essonne (91)" loading="lazy" decoding="async"><figcaption>Garde-corps en acier, Essonne (91)</figcaption></figure><figure class="rv rv2" data-full="img/22.jpg" tabindex="0"><img src="img/thumb/22.jpg" srcset="img/thumb/22.jpg 560w, img/22.jpg 1100w" sizes="(max-width:860px) 50vw, 40vw" alt="Escalier métallique hélicoïdal" loading="lazy" decoding="async"><figcaption>Escalier métallique hélicoïdal</figcaption></figure><figure class="rv rv3" data-full="img/13.jpg" tabindex="0"><img src="img/thumb/13.jpg" srcset="img/thumb/13.jpg 560w, img/13.jpg 1100w" sizes="(max-width:860px) 50vw, 40vw" alt="Portail métallique laqué sur mesure" loading="lazy" decoding="async"><figcaption>Portail métallique laqué sur mesure</figcaption></figure><figure class="rv" data-full="img/09.jpg" tabindex="0"><img src="img/thumb/09.jpg" srcset="img/thumb/09.jpg 560w, img/09.jpg 1100w" sizes="(max-width:860px) 50vw, 40vw" alt="Garde-corps et marquise, Corbeil-Essonnes" loading="lazy" decoding="async"><figcaption>Garde-corps et marquise, Corbeil-Essonnes</figcaption></figure><figure class="rv rv2" data-full="img/15.jpg" tabindex="0"><img src="img/thumb/15.jpg" srcset="img/thumb/15.jpg 560w, img/15.jpg 1100w" sizes="(max-width:860px) 50vw, 40vw" alt="Garde-corps de terrasse technique" loading="lazy" decoding="async"><figcaption>Garde-corps de terrasse technique</figcaption></figure><figure class="rv rv3" data-full="img/29.jpg" tabindex="0"><img src="img/thumb/29.jpg" srcset="img/thumb/29.jpg 560w, img/29.jpg 1100w" sizes="(max-width:860px) 50vw, 40vw" alt="Main courante en acier" loading="lazy" decoding="async"><figcaption>Main courante en acier</figcaption></figure><figure class="rv" data-full="img/06.jpg" tabindex="0"><img src="img/thumb/06.jpg" srcset="img/thumb/06.jpg 560w, img/06.jpg 1100w" sizes="(max-width:860px) 50vw, 40vw" alt="Palissade métallique, Corbeil-Essonnes" loading="lazy" decoding="async"><figcaption>Palissade métallique, Corbeil-Essonnes</figcaption></figure><figure class="rv rv2" data-full="img/08.jpg" tabindex="0"><img src="img/thumb/08.jpg" srcset="img/thumb/08.jpg 560w, img/08.jpg 1100w" sizes="(max-width:860px) 50vw, 40vw" alt="Grille de défense, Corbeil-Essonnes" loading="lazy" decoding="async"><figcaption>Grille de défense, Corbeil-Essonnes</figcaption></figure></div>
+<a class="cta outline" href="realisations.html" style="margin-top:2.2rem">Voir les 35 réalisations</a></div></section>
 
-<section class="alt"><div class="wrap"><div class="eyebrow">pourquoi nous</div><h2 class="rv">{cfg['why_title']}</h2>
-<div class="pillars">{"".join(f'<div class="pillar rv rv{(i%3)+1}"><i>0{i+1}</i><b>{t}</b><span>{d}</span></div>' for i,(t,d) in enumerate(cfg['pillars']))}</div></div></section>
+<section class="alt"><div class="wrap"><div class="eyebrow">pourquoi nous</div><h2 class="rv">Ce qui fait la différence.</h2>
+<div class="pillars"><div class="pillar rv rv1"><i>01</i><b>Étude et déplacement gratuits</b><span>Un technicien se déplace, étudie votre besoin et chiffre sans engagement.</span></div><div class="pillar rv rv2"><i>02</i><b>Fabrication française sur mesure</b><span>Chaque pièce est pensée pour votre bâtiment et fabriquée dans nos ateliers.</span></div><div class="pillar rv rv3"><i>03</i><b>Assurances et garanties</b><span>Responsabilité civile, dommages-ouvrage et garantie de parfait achèvement.</span></div></div></div></section>
 
-{f'<section style="padding-top:0;padding-bottom:0"><div class="wrap"><p class="eyebrow" style="margin:5vh 0 1.2rem">marques travaillées au quotidien</p></div>{marquee()}</section>' if cfg.get('brands') else ''}
+<section style="padding-top:0;padding-bottom:0"><div class="wrap"><p class="eyebrow" style="margin:5vh 0 1.2rem">marques travaillées au quotidien</p></div><div class="marq"><div class="marq-track"><span>Vachette</span><span>Picard</span><span>Bricard</span><span>Mul-T-Lock</span><span>Assa Abloy</span><span>Cisa</span><span>Yale</span><span>Abus</span><span>JPM</span><span>Héraclès</span><span>Deny-Fontaine</span><span>Ferco</span><span>Tesa</span><span>Iseo</span><span>Kaba</span><span>Laperche</span><span>Mottura</span><span>Metalux</span><span>Stremler</span><span>Thirard</span><span>Vachette</span><span>Picard</span><span>Bricard</span><span>Mul-T-Lock</span><span>Assa Abloy</span><span>Cisa</span><span>Yale</span><span>Abus</span><span>JPM</span><span>Héraclès</span><span>Deny-Fontaine</span><span>Ferco</span><span>Tesa</span><span>Iseo</span><span>Kaba</span><span>Laperche</span><span>Mottura</span><span>Metalux</span><span>Stremler</span><span>Thirard</span></div></div></section>
 
 <section><div class="wrap"><div class="eyebrow">avis clients</div>
-<div class="notebig rv"><span class="n">{cfg['note']}<small>/5</small></span><div class="meta"><div class="stars">★★★★★</div>{cfg['note_meta']}</div></div>
-{reviews_grid()}
+<div class="notebig rv"><span class="n">5,0<small>/5</small></span><div class="meta"><div class="stars">★★★★★</div>4 avis Pages Jaunes et 2 avis Google, tous à 5 sur 5.</div></div>
+<div class="reviews"><div class="rcard rv rv1"><div class="stars">★★★★★</div>
+<p>« Très satisfait de la rénovation de notre verrière, au 7ème étage d'un immeuble d'Issy-les-Moulineaux. »</p><p style="margin-top:.8rem;color:var(--soft);font-size:.9rem">Notre verrière créée en 1995 par une autre entreprise commençait à se dégrader. Diagnostic technique très clair sur la réparation à effectuer, devis raisonnable et intervention rapide. Contact très agréable. Je recommande.</p><div class="who"><b>GEFF</b><span>21 juin 2022</span></div></div><div class="rcard rv rv2"><div class="stars">★★★★★</div>
+<p>« Excellent artisan, très professionnel, très compétent dans ses domaines. Fiable, de parole, respectueux des délais. Je le recommande vivement. Très contente de son travail de grande qualité. »</p><div class="who"><b>SifromParis</b><span>16 septembre 2021</span></div></div><div class="rcard rv rv3"><div class="stars">★★★★★</div>
+<p>« Rapide et de qualité. Je recommande vivement. »</p><div class="who"><b>Emma1504</b><span>1 avril 2021</span></div></div><div class="rcard rv rv1"><div class="stars">★★★★★</div>
+<p>« Technicien très professionnel et travail soigné. Encore merci. »</p><div class="who"><b>Josianne</b><span>Cliente</span></div></div></div>
 <a class="cta outline" href="contact.html" style="margin-top:2rem">Demander un devis</a></div></section>
 <footer><div class="fgrid">
 <div><h4>AVMS Metal</h4><p>Serrurerie, métallerie, vitrerie et menuiserie aluminium. Fabrication française sur mesure, étude et déplacement gratuits, intervention rapide dans le 91, le sud du 77 et le 94.</p>

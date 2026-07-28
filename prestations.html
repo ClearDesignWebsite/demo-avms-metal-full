@@ -120,7 +120,7 @@ section.alt{background:var(--panel);border-top:1px solid var(--line);border-bott
 .eyebrow::after{content:"";flex:1;max-width:4.5rem;height:1px;background:var(--line)}
 h2{font-family:var(--display);font-size:clamp(1.75rem,3.8vw,2.7rem);line-height:1.12;letter-spacing:.008em;margin-bottom:1rem;max-width:22ch}
 h3{font-family:var(--display);font-size:1.42rem;line-height:1.2;letter-spacing:.01em;margin-bottom:.45rem}
-.txt{color:var(--soft);max-width:44rem;line-height:1.85}
+.txt{color:var(--soft);max-width:62ch;line-height:1.85}
 .txt+.txt{margin-top:1rem}
 ul.services{list-style:none;margin-top:1.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem 2rem;max-width:44rem}
 ul.services li{color:var(--ink);padding-left:1.4rem;position:relative;font-size:.98rem}
@@ -141,15 +141,15 @@ ul.services li::before{content:"";position:absolute;left:0;top:.62em;width:8px;h
 .card .num{position:absolute;top:1.1rem;left:1.3rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;color:var(--accent);
   background:color-mix(in srgb,#0a0908 65%,transparent);padding:.3rem .65rem;border-radius:20px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .card .in{padding:1.5rem 1.55rem 1.7rem}
-.card h3{transition:color .3s}
+.card h3{transition:color .3s;max-width:15ch}
 .card:hover h3{color:var(--accent)}
-.card p{color:var(--soft);font-size:.93rem;margin-top:.45rem;
-  max-height:0;opacity:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1),opacity .4s,margin .4s}
-.card:hover p,.card:focus-within p{max-height:9rem;opacity:1}
-.card .more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.82rem;color:var(--accent);font-weight:700}
+/* description TOUJOURS lisible, largeur de ligne courte (jamais du texte étalé) */
+.card p{color:#d6cfc6;font-size:.9rem;line-height:1.6;margin-top:.5rem;max-width:34ch;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.05rem;font-size:.82rem;color:var(--accent);font-weight:700}
 .card .more::after{content:"→";transition:transform .3s}
 .card:hover .more::after{transform:translateX(5px)}
-@media(max-width:860px){.card{min-height:360px}.card p{max-height:9rem;opacity:1}}
+@media(max-width:860px){.card{min-height:340px}}
 
 /* ── GALERIE ÉDITORIALE + LIGHTBOX ── */
 .gal{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin-top:2rem}
@@ -280,7 +280,7 @@ footer{border-top:1px solid var(--line);padding:3rem max(1.1rem,4vw) 2rem;backgr
 .rv.on{opacity:1;transform:none}
 .rv2{transition-delay:.09s}.rv3{transition-delay:.18s}.rv4{transition-delay:.27s}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}h1 .w b{transform:none!important}.lead,.herobtns{opacity:1!important}}
-</style><style>.pagehero::before{background-image:url(img/22.jpg)}</style>
+</style><style>.pagehero::before{background-image:url(img/09.jpg)}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "AVMS Metal", "telephone": "07 69 86 03 95", "email": "avms.metal@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "25 quai de l'Apport Paris", "postalCode": "91100", "addressLocality": "Corbeil-Essonnes", "addressCountry": "FR"}, "areaServed": ["Essonne (91)", "Sud Seine-et-Marne (77, Sénart)", "Val-de-Marne (94)", "Île-de-France"], "description": "Toutes les prestations AVMS Metal."}</script></head><body>
 <nav class="nav">
 <a class="brand" href="index.html"><img src="logo.png" alt="AVMS Metal" width="120" height="40"><b>AVMS METAL</b></a>
