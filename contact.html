@@ -364,7 +364,20 @@ footer{border-top:1px solid var(--line);padding:3rem max(1.1rem,4vw) 2rem;backgr
 .stat b{letter-spacing:-.01em}
 /* section alternée : trame d'atelier discrète */
 section.alt{background-image:repeating-linear-gradient(90deg,color-mix(in srgb,var(--line) 40%,transparent) 0 1px,transparent 1px 64px)}
-</style><style>.pagehero::before{background-image:url(img/09.jpg)}</style>
+</style><style>.pagehero::before{background-image:url(img/09.jpg)}
+/* menu deroulant maison — remplace la liste deroulante native (interdite, Fadel 29/07) */
+.selx{position:relative}
+.selx-b{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:.9rem 2.8rem .9rem 1rem;font:inherit;font-size:.96rem;min-height:50px;transition:border-color .25s,box-shadow .25s;text-align:left;cursor:pointer;display:flex;align-items:center;position:relative}
+.selx-b:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.selx-b:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+.selx-b::after{content:"";position:absolute;right:1.15rem;top:50%;width:.5rem;height:.5rem;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:translateY(-70%) rotate(45deg);transition:transform .25s}
+.selx.on .selx-b::after{transform:translateY(-25%) rotate(225deg)}
+.selx-l{position:absolute;left:0;right:0;top:calc(100% + .35rem);z-index:40;margin:0;padding:.3rem;list-style:none;background:var(--panel2);border:1px solid var(--line);border-radius:8px;box-shadow:0 14px 34px rgba(0,0,0,.34);max-height:15rem;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-.4rem);transition:opacity .22s,transform .22s,visibility .22s}
+.selx.on .selx-l{opacity:1;visibility:visible;transform:translateY(0)}
+.selx-o{padding:.7rem .85rem;border-radius:6px;cursor:pointer;font-size:.94rem;transition:background .18s,color .18s}
+.selx-o:hover,.selx-o.k{background:color-mix(in srgb,var(--accent) 16%,transparent)}
+.selx-o[aria-selected="true"]{color:var(--accent);font-weight:600}
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "AVMS Metal", "telephone": "07 69 86 03 95", "email": "avms.metal@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "25 quai de l'Apport Paris", "postalCode": "91100", "addressLocality": "Corbeil-Essonnes", "addressCountry": "FR"}, "areaServed": ["Essonne (91)", "Sud Seine-et-Marne (77, Sénart)", "Val-de-Marne (94)", "Île-de-France"], "description": "Contactez AVMS Metal, devis gratuit."}</script></head><body>
 <nav class="nav">
 <a class="brand" href="index.html" aria-label="AVMS Metal"><img src="logo.png" alt="AVMS Metal"></a>
@@ -385,7 +398,7 @@ section.alt{background-image:repeating-linear-gradient(90deg,color-mix(in srgb,v
 <div><label for="prenom">Prénom</label><input id="prenom" name="prenom"></div></div>
 <div class="frow"><div><label for="email">Email</label><input id="email" type="email" name="email" required></div>
 <div><label for="tel">Téléphone</label><input id="tel" type="tel" name="telephone"></div></div>
-<label for="sujet">Votre besoin</label><select id="sujet" name="sujet"><option>Serrurerie générale</option><option>Menuiserie aluminium</option><option>Métallerie sur mesure</option><option>Dépannage vitrerie</option><option>Remplacement de vitrine</option><option>Rideaux métalliques et stores</option><option>Autre demande</option></select>
+<label id="l-sujet" class="selx-lab">Votre besoin</label><div class="selx"><button type="button" class="selx-b" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="l-sujet"><span>Serrurerie générale</span></button><ul class="selx-l" role="listbox" aria-labelledby="l-sujet"><li class="selx-o" role="option" data-v="Serrurerie générale" aria-selected="true">Serrurerie générale</li><li class="selx-o" role="option" data-v="Menuiserie aluminium" aria-selected="false">Menuiserie aluminium</li><li class="selx-o" role="option" data-v="Métallerie sur mesure" aria-selected="false">Métallerie sur mesure</li><li class="selx-o" role="option" data-v="Dépannage vitrerie" aria-selected="false">Dépannage vitrerie</li><li class="selx-o" role="option" data-v="Remplacement de vitrine" aria-selected="false">Remplacement de vitrine</li><li class="selx-o" role="option" data-v="Rideaux métalliques et stores" aria-selected="false">Rideaux métalliques et stores</li><li class="selx-o" role="option" data-v="Autre demande" aria-selected="false">Autre demande</li></ul><input type="hidden" name="sujet" value="Serrurerie générale"></div>
 <label for="msg">Message</label><textarea id="msg" name="message" required placeholder="Décrivez votre projet ou votre urgence"></textarea>
 <button type="submit" class="cta">Envoyer ma demande</button>
 </form></div>
@@ -485,4 +498,45 @@ lb.querySelector('.prev').onclick=e=>{e.stopPropagation();show(idx-1)};
 lb.querySelector('.next').onclick=e=>{e.stopPropagation();show(idx+1)};
 lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('on')});
 addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowRight')show(idx+1);if(e.key==='ArrowLeft')show(idx-1)});}
-</script></body></html>
+</script><script>
+/* menu deroulant maison : pilote le champ cache, aucun element natif */
+(function(){
+  var ws = document.querySelectorAll('.selx');
+  for (var i = 0; i < ws.length; i++) (function(w){
+    var b = w.querySelector('.selx-b'),
+        h = w.querySelector('input[type="hidden"]'),
+        et = b.querySelector('span'),
+        os = w.querySelectorAll('.selx-o'),
+        cur = 0;
+    function ouvrir(){ w.className = 'selx on'; b.setAttribute('aria-expanded','true'); }
+    function fermer(){ w.className = 'selx'; b.setAttribute('aria-expanded','false'); }
+    function marquer(n){
+      for (var k = 0; k < os.length; k++) os[k].className = 'selx-o';
+      if (os[n]) { os[n].className = 'selx-o k'; cur = n; }
+    }
+    function choisir(o, n){
+      for (var k = 0; k < os.length; k++) os[k].setAttribute('aria-selected','false');
+      o.setAttribute('aria-selected','true');
+      et.innerHTML = o.innerHTML;
+      h.value = o.getAttribute('data-v');
+      cur = n; fermer(); b.focus();
+    }
+    b.onclick = function(e){ e.stopPropagation(); if (w.className.indexOf('on') > -1) fermer(); else { ouvrir(); marquer(cur); } };
+    for (var j = 0; j < os.length; j++) (function(o, n){
+      o.onclick = function(e){ e.stopPropagation(); choisir(o, n); };
+    })(os[j], j);
+    b.onkeydown = function(e){
+      var t = e.key;
+      if (t === 'ArrowDown' || t === 'Down') { e.preventDefault(); if (w.className.indexOf('on') < 0) { ouvrir(); marquer(cur); } else marquer(Math.min(cur + 1, os.length - 1)); }
+      else if (t === 'ArrowUp' || t === 'Up') { e.preventDefault(); if (w.className.indexOf('on') > -1) marquer(Math.max(cur - 1, 0)); }
+      else if (t === 'Enter' || t === ' ' || t === 'Spacebar') { e.preventDefault(); if (w.className.indexOf('on') < 0) { ouvrir(); marquer(cur); } else choisir(os[cur], cur); }
+      else if (t === 'Escape' || t === 'Esc') { fermer(); }
+    };
+    document.addEventListener('click', function(e){
+      var n = e.target; while (n) { if (n === w) return; n = n.parentNode; }
+      fermer();
+    });
+  })(ws[i]);
+})();
+</script>
+</body></html>
